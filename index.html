@@ -9,9 +9,10 @@
   <title>VOLTEX | Electricista en Córdoba</title>
   <meta
     name="description"
-    content="Electricista en Córdoba. Instalaciones, reparaciones, tableros, iluminación y urgencias. Atención rápida por WhatsApp."
+    content="Electricista en Córdoba. Urgencias, instalaciones, tableros e iluminación. Atención rápida y directa por WhatsApp."
   />
-  <meta name="theme-color" content="#0e1116" />
+  <meta name="theme-color" content="#0c1117" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -21,24 +22,26 @@
 
   <style>
     :root{
-      --bg:#0b0f14;
-      --bg-2:#101722;
-      --panel:#121a25;
-      --panel-2:#172130;
+      --bg:#0a0f14;
+      --bg-2:#0f1720;
+      --panel:#111923;
+      --panel-2:#162230;
       --text:#f7f9fc;
-      --muted:#9ca8b8;
-      --muted-2:#c5ced9;
+      --muted:#96a3b3;
+      --muted-2:#c9d1db;
       --line:rgba(255,255,255,.08);
+      --line-soft:rgba(255,255,255,.05);
       --accent:#f4b400;
-      --accent-2:#ffd34d;
-      --accent-dark:#ae7d00;
+      --accent-2:#ffd55c;
+      --accent-3:#ffe9ae;
       --wa:#25d366;
-      --wa-dark:#1da851;
-      --shadow:0 18px 60px rgba(0,0,0,.38);
+      --wa-dark:#1ea952;
+      --shadow:0 20px 60px rgba(0,0,0,.38);
+      --shadow-soft:0 12px 34px rgba(0,0,0,.24);
       --radius:24px;
       --radius-lg:30px;
       --container:1180px;
-      --topbar-h:76px;
+      --topbar-h:72px;
     }
 
     *{box-sizing:border-box}
@@ -46,13 +49,13 @@
     body{
       margin:0;
       font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(244,180,0,.08), transparent 28%),
-        radial-gradient(circle at top right, rgba(255,255,255,.04), transparent 20%),
-        linear-gradient(180deg, #0a0e13 0%, #0c1118 50%, #0b1015 100%);
       color:var(--text);
       min-height:100vh;
       overflow-x:hidden;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(244,180,0,.07), transparent 26%),
+        radial-gradient(circle at 100% 0%, rgba(255,255,255,.05), transparent 18%),
+        linear-gradient(180deg, #0a0f14 0%, #0c1219 42%, #0b1118 100%);
     }
 
     img{max-width:100%;display:block}
@@ -78,7 +81,9 @@
       pointer-events:auto;
     }
 
-    /* ============= INTRO ============= */
+    /* =========================
+       INTRO
+       ========================= */
     .intro{
       position:relative;
       min-height:100svh;
@@ -87,9 +92,9 @@
       overflow:hidden;
       isolation:isolate;
       background:
-        radial-gradient(circle at 20% 20%, rgba(244,180,0,.14), transparent 24%),
-        radial-gradient(circle at 80% 15%, rgba(255,255,255,.06), transparent 16%),
-        linear-gradient(180deg, #0b1016 0%, #080b10 100%);
+        radial-gradient(circle at 20% 20%, rgba(244,180,0,.12), transparent 24%),
+        radial-gradient(circle at 80% 14%, rgba(255,255,255,.05), transparent 16%),
+        linear-gradient(180deg, #0a0f14 0%, #070a0f 100%);
     }
 
     .intro::before{
@@ -97,8 +102,8 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.58)),
-        linear-gradient(120deg, rgba(255,255,255,.03), transparent 25%);
+        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.58)),
+        linear-gradient(120deg, rgba(255,255,255,.03), transparent 24%);
       z-index:-2;
     }
 
@@ -113,8 +118,8 @@
     .window-glow,
     .lamp-glow,
     .spark,
-    .blackout,
-    .flash{
+    .flash,
+    .blackout{
       position:absolute;
       pointer-events:none;
     }
@@ -123,43 +128,43 @@
       top:-10vh;
       left:50%;
       transform:translateX(-50%);
-      width:min(90vw, 920px);
+      width:min(90vw, 940px);
       height:44vh;
       border-radius:50%;
-      background:radial-gradient(circle, rgba(255,214,95,.22) 0%, rgba(255,189,36,.1) 34%, rgba(0,0,0,0) 72%);
+      background:radial-gradient(circle, rgba(255,216,102,.24) 0%, rgba(255,186,28,.1) 34%, rgba(0,0,0,0) 72%);
       filter:blur(10px);
       animation:roomGlow 4.3s ease-in-out forwards;
       opacity:.95;
     }
 
     .window-glow{
-      top:16%;
+      top:15%;
       width:18vw;
       min-width:120px;
       max-width:240px;
       height:24vh;
       min-height:150px;
       max-height:260px;
-      border-radius:26px;
+      border-radius:28px;
       background:
-        linear-gradient(180deg, rgba(255,240,195,.95), rgba(255,205,79,.8)),
-        linear-gradient(180deg, rgba(255,255,255,.22), transparent);
+        linear-gradient(180deg, rgba(255,243,205,.96), rgba(255,208,88,.82)),
+        linear-gradient(180deg, rgba(255,255,255,.24), transparent);
       box-shadow:
         0 0 0 1px rgba(255,255,255,.09) inset,
-        0 20px 80px rgba(255,199,71,.14);
+        0 20px 80px rgba(255,198,71,.14);
       animation:windowFlicker 4.2s ease-in-out forwards;
     }
-    .window-glow.left{left:10%}
-    .window-glow.right{right:10%}
+    .window-glow.left{left:9%}
+    .window-glow.right{right:9%}
 
     .lamp-glow{
       top:18%;
       left:50%;
       transform:translateX(-50%);
-      width:120px;
-      height:120px;
+      width:126px;
+      height:126px;
       border-radius:50%;
-      background:radial-gradient(circle, rgba(255,228,146,.95) 0%, rgba(255,198,58,.22) 48%, transparent 72%);
+      background:radial-gradient(circle, rgba(255,229,145,.96) 0%, rgba(255,198,58,.24) 48%, transparent 72%);
       filter:blur(4px);
       animation:lampFlicker 4.1s ease-in-out forwards;
       opacity:.95;
@@ -167,12 +172,10 @@
 
     .wall-line{
       position:absolute;
-      left:0;
-      right:0;
-      bottom:30%;
+      left:0;right:0;bottom:30%;
       height:1px;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.09), transparent);
-      opacity:.45;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+      opacity:.4;
     }
 
     .floor{
@@ -182,8 +185,8 @@
       bottom:-14%;
       height:34%;
       background:
-        linear-gradient(180deg, rgba(255,184,30,.04), transparent 18%),
-        linear-gradient(180deg, #131a24 0%, #0d141c 100%);
+        linear-gradient(180deg, rgba(244,180,0,.04), transparent 18%),
+        linear-gradient(180deg, #121a25 0%, #0d141b 100%);
       transform:perspective(800px) rotateX(74deg);
       border-top:1px solid rgba(255,255,255,.05);
       opacity:.95;
@@ -195,25 +198,24 @@
       top:28%;
       left:52%;
       border-radius:50%;
-      background:radial-gradient(circle, #fff6d5 0%, #ffd25a 35%, rgba(255,180,0,.15) 60%, transparent 72%);
-      filter:blur(.4px);
-      opacity:0;
+      background:radial-gradient(circle, #fff6d8 0%, #ffd25a 36%, rgba(255,180,0,.16) 60%, transparent 72%);
       box-shadow:
-        0 0 18px rgba(255,210,90,.8),
+        0 0 18px rgba(255,210,90,.82),
         0 0 46px rgba(255,175,0,.32);
+      opacity:0;
       animation:sparkPop 4.1s linear forwards;
     }
 
     .flash{
       inset:0;
-      background:#fff6d5;
+      background:#fff6d8;
       opacity:0;
       animation:flashBang 4.1s linear forwards;
     }
 
     .blackout{
       inset:0;
-      background:#020304;
+      background:#010203;
       opacity:0;
       animation:blackout 4.1s linear forwards;
     }
@@ -222,8 +224,8 @@
       width:min(100% - 32px, 1160px);
       margin-inline:auto;
       display:grid;
-      grid-template-columns:1.12fr .88fr;
-      gap:32px;
+      grid-template-columns:1.15fr .85fr;
+      gap:28px;
       align-items:center;
       padding:
         max(20px, env(safe-area-inset-top))
@@ -245,10 +247,10 @@
       border:1px solid rgba(255,255,255,.1);
       border-radius:999px;
       background:rgba(255,255,255,.04);
-      color:#f3d77e;
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:.04em;
+      color:#f1d988;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
       text-transform:uppercase;
       margin-bottom:18px;
       backdrop-filter:blur(8px);
@@ -256,18 +258,16 @@
 
     .intro-kicker::before{
       content:"";
-      width:8px;
-      height:8px;
-      border-radius:50%;
+      width:8px;height:8px;border-radius:50%;
       background:var(--accent);
       box-shadow:0 0 0 5px rgba(244,180,0,.14);
     }
 
     .intro-copy h1{
       margin:0 0 14px;
-      font-size:clamp(38px, 7vw, 74px);
-      line-height:.95;
-      letter-spacing:-.04em;
+      font-size:clamp(40px, 7vw, 78px);
+      line-height:.94;
+      letter-spacing:-.05em;
       font-weight:900;
       max-width:10ch;
       text-wrap:balance;
@@ -276,9 +276,9 @@
     .intro-copy p{
       margin:0;
       color:var(--muted-2);
-      font-size:clamp(16px, 2.3vw, 20px);
-      line-height:1.65;
-      max-width:54ch;
+      font-size:clamp(16px, 2.3vw, 19px);
+      line-height:1.68;
+      max-width:48ch;
     }
 
     .intro-actions{
@@ -290,10 +290,10 @@
 
     .intro-card{
       justify-self:end;
-      width:min(100%, 420px);
-      padding:28px;
+      width:min(100%, 390px);
+      padding:24px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
       border:1px solid rgba(255,255,255,.1);
       border-radius:28px;
       box-shadow:var(--shadow);
@@ -308,7 +308,7 @@
       padding:10px 14px;
       border-radius:999px;
       background:rgba(37,211,102,.08);
-      color:#a6f0bd;
+      color:#a9f3c1;
       border:1px solid rgba(37,211,102,.18);
       font-size:13px;
       font-weight:700;
@@ -317,15 +317,13 @@
 
     .status-pill::before{
       content:"";
-      width:8px;
-      height:8px;
-      border-radius:50%;
+      width:8px;height:8px;border-radius:50%;
       background:var(--wa);
       box-shadow:0 0 0 5px rgba(37,211,102,.14);
     }
 
     .mini-card{
-      padding:18px;
+      padding:16px;
       border-radius:22px;
       background:rgba(8,12,18,.58);
       border:1px solid rgba(255,255,255,.06);
@@ -334,11 +332,11 @@
 
     .mini-label{
       color:var(--muted);
-      font-size:12px;
+      font-size:11px;
       text-transform:uppercase;
-      letter-spacing:.08em;
+      letter-spacing:.1em;
       margin-bottom:8px;
-      font-weight:700;
+      font-weight:800;
     }
 
     .mini-title{
@@ -349,7 +347,7 @@
 
     .mini-text{
       margin:0;
-      color:#cfd6df;
+      color:#cfd7e1;
       font-size:14px;
       line-height:1.55;
     }
@@ -368,14 +366,15 @@
       backdrop-filter:blur(10px);
       transition:transform .2s ease, background .2s ease, border-color .2s ease;
     }
-
     .skip-intro:hover{
       transform:translateY(-1px);
       background:rgba(255,255,255,.08);
       border-color:rgba(255,255,255,.2);
     }
 
-    /* ============= BUTTONS ============= */
+    /* =========================
+       BOTONES
+       ========================= */
     .btn-wa,
     .btn-outline,
     .btn-dark,
@@ -398,17 +397,12 @@
       color:#fff;
       box-shadow:0 10px 28px rgba(37,211,102,.24);
     }
-
     .btn-wa:hover{
       transform:translateY(-2px);
       box-shadow:0 16px 32px rgba(37,211,102,.28);
     }
-
     .btn-wa svg{
-      width:22px;
-      height:22px;
-      fill:currentColor;
-      flex:none;
+      width:22px;height:22px;fill:currentColor;flex:none;
     }
 
     .btn-outline{
@@ -417,7 +411,6 @@
       background:rgba(255,255,255,.03);
       backdrop-filter:blur(8px);
     }
-
     .btn-outline:hover{
       transform:translateY(-2px);
       background:rgba(255,255,255,.06);
@@ -425,11 +418,10 @@
     }
 
     .btn-dark{
-      background:#141c27;
+      background:#141d28;
       color:#fff;
       border:1px solid rgba(255,255,255,.08);
     }
-
     .btn-dark:hover{
       transform:translateY(-2px);
       background:#1a2430;
@@ -440,19 +432,20 @@
       color:#181300;
       box-shadow:0 12px 34px rgba(244,180,0,.22);
     }
-
     .btn-main:hover{
       transform:translateY(-2px);
     }
 
-    /* ============= TOPBAR ============= */
+    /* =========================
+       HEADER
+       ========================= */
     .topbar{
       position:sticky;
       top:0;
       z-index:30;
-      backdrop-filter:blur(14px);
-      background:rgba(9,13,18,.72);
-      border-bottom:1px solid rgba(255,255,255,.06);
+      backdrop-filter:blur(16px);
+      background:rgba(8,12,18,.72);
+      border-bottom:1px solid rgba(255,255,255,.05);
     }
 
     .topbar-inner{
@@ -460,7 +453,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:20px;
+      gap:18px;
     }
 
     .brand{
@@ -469,16 +462,14 @@
       gap:12px;
       font-weight:900;
       letter-spacing:.18em;
-      font-size:15px;
+      font-size:14px;
       color:#fff;
     }
 
     .brand-mark{
-      width:14px;
-      height:14px;
-      border-radius:4px;
+      width:13px;height:13px;border-radius:4px;
       transform:rotate(45deg);
-      background:linear-gradient(180deg, var(--accent-2), var(--accent-dark));
+      background:linear-gradient(180deg, var(--accent-2), #b47e00);
       box-shadow:0 0 18px rgba(244,180,0,.34);
       flex:none;
     }
@@ -486,7 +477,7 @@
     .topbar-right{
       display:flex;
       align-items:center;
-      gap:18px;
+      gap:16px;
     }
 
     .nav{
@@ -496,46 +487,61 @@
     }
 
     .nav a{
-      color:#d7dee8;
-      font-size:14px;
+      color:#d4dde7;
+      font-size:13px;
       font-weight:600;
+      letter-spacing:.02em;
       transition:color .2s ease, opacity .2s ease;
     }
-
     .nav a:hover{color:#fff}
 
     .online-badge{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:10px 14px;
+      padding:9px 13px;
       border-radius:999px;
       background:rgba(37,211,102,.08);
       border:1px solid rgba(37,211,102,.16);
       color:#aaf3c1;
-      font-size:13px;
+      font-size:12px;
       font-weight:700;
       white-space:nowrap;
     }
 
     .online-badge::before{
       content:"";
-      width:8px;
-      height:8px;
-      border-radius:50%;
+      width:8px;height:8px;border-radius:50%;
       background:var(--wa);
       box-shadow:0 0 0 5px rgba(37,211,102,.14);
     }
 
-    /* ============= HERO ============= */
+    /* =========================
+       HERO
+       ========================= */
     .hero{
-      padding:38px 0 18px;
+      position:relative;
+      padding:36px 0 16px;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height:560px;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 78% 16%, rgba(244,180,0,.08), transparent 20%),
+        radial-gradient(circle at 90% 12%, rgba(255,255,255,.05), transparent 10%);
+      z-index:0;
     }
 
     .hero-grid{
+      position:relative;
+      z-index:1;
       display:grid;
       grid-template-columns:1.08fr .92fr;
-      gap:22px;
+      gap:16px;
       align-items:stretch;
     }
 
@@ -546,7 +552,7 @@
     .contact-card{
       background:
         linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
-      border:1px solid rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.07);
       border-radius:var(--radius-lg);
       box-shadow:var(--shadow);
       backdrop-filter:blur(12px);
@@ -556,16 +562,20 @@
       padding:34px;
       position:relative;
       overflow:hidden;
+      min-height:520px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025)),
+        radial-gradient(circle at top right, rgba(244,180,0,.08), transparent 24%);
     }
 
-    .hero-card::before{
+    .hero-card::after{
       content:"";
       position:absolute;
-      inset:auto -10% -30% auto;
+      inset:auto -10% -22% auto;
       width:320px;
       height:320px;
       border-radius:50%;
-      background:radial-gradient(circle, rgba(244,180,0,.16), transparent 68%);
+      background:radial-gradient(circle, rgba(244,180,0,.14), transparent 68%);
       pointer-events:none;
     }
 
@@ -577,39 +587,37 @@
       border-radius:999px;
       border:1px solid rgba(255,255,255,.09);
       background:rgba(255,255,255,.03);
-      color:#f3d77e;
-      font-size:12px;
+      color:#f1d988;
+      font-size:11px;
       text-transform:uppercase;
-      letter-spacing:.08em;
+      letter-spacing:.1em;
       font-weight:800;
       margin-bottom:18px;
     }
 
     .eyebrow::before{
       content:"";
-      width:8px;
-      height:8px;
-      border-radius:50%;
+      width:8px;height:8px;border-radius:50%;
       background:var(--accent);
       box-shadow:0 0 0 5px rgba(244,180,0,.14);
     }
 
     .hero-title{
       margin:0;
-      font-size:clamp(32px, 5vw, 58px);
-      line-height:.98;
-      letter-spacing:-.04em;
+      font-size:clamp(34px, 5vw, 62px);
+      line-height:.95;
+      letter-spacing:-.05em;
       font-weight:900;
-      max-width:12ch;
+      max-width:11ch;
       text-wrap:balance;
     }
 
     .hero-text{
-      margin:16px 0 0;
+      margin:14px 0 0;
       color:var(--muted-2);
-      line-height:1.7;
-      font-size:17px;
-      max-width:58ch;
+      line-height:1.68;
+      font-size:16px;
+      max-width:44ch;
     }
 
     .hero-actions{
@@ -619,57 +627,79 @@
       margin-top:24px;
     }
 
-    .hero-points{
+    .hero-mini-proof{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .proof-pill{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.07);
+      color:#dbe3ed;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .hero-bottom{
       margin-top:28px;
       display:grid;
       grid-template-columns:repeat(3, 1fr);
       gap:12px;
     }
 
-    .point{
+    .mini-feature{
       padding:16px;
       border-radius:22px;
-      background:rgba(12,17,24,.58);
+      background:rgba(10,15,22,.58);
       border:1px solid rgba(255,255,255,.06);
-      min-height:126px;
+      min-height:122px;
     }
 
-    .point strong{
+    .mini-feature strong{
       display:block;
       margin-bottom:8px;
       font-size:15px;
     }
 
-    .point span{
+    .mini-feature span{
       color:var(--muted);
       font-size:14px;
-      line-height:1.6;
+      line-height:1.55;
     }
 
     .hero-side{
       display:grid;
-      gap:16px;
+      gap:14px;
     }
 
     .panel{
-      padding:26px;
+      padding:24px;
+      overflow:hidden;
+      position:relative;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025)),
+        radial-gradient(circle at top right, rgba(244,180,0,.06), transparent 28%);
     }
 
     .panel-label{
-      color:#f3d77e;
-      font-size:12px;
-      letter-spacing:.08em;
+      color:#f1d988;
+      font-size:11px;
+      letter-spacing:.1em;
       text-transform:uppercase;
       font-weight:800;
       margin-bottom:16px;
     }
 
-    .phone-box{
+    .panel-card{
       padding:18px;
-      border-radius:24px;
+      border-radius:22px;
       background:rgba(8,12,18,.56);
       border:1px solid rgba(255,255,255,.06);
-      margin-bottom:14px;
+      margin-bottom:12px;
     }
 
     .phone-box small{
@@ -684,14 +714,14 @@
       display:block;
       font-size:clamp(24px, 4vw, 34px);
       line-height:1;
-      letter-spacing:-.04em;
+      letter-spacing:-.05em;
       margin-bottom:14px;
     }
 
     .contact-stack{
       display:grid;
       gap:12px;
-      margin-top:16px;
+      margin-top:8px;
     }
 
     .contact-item{
@@ -699,14 +729,13 @@
       gap:14px;
       align-items:flex-start;
       padding:16px;
-      border-radius:22px;
+      border-radius:20px;
       background:rgba(8,12,18,.56);
       border:1px solid rgba(255,255,255,.06);
     }
 
     .contact-icon{
-      width:42px;
-      height:42px;
+      width:42px;height:42px;
       border-radius:14px;
       display:grid;
       place-items:center;
@@ -729,9 +758,11 @@
       line-height:1.5;
     }
 
-    /* ============= SECTIONS ============= */
+    /* =========================
+       SECCIONES
+       ========================= */
     .section{
-      padding:20px 0;
+      padding:18px 0;
     }
 
     .section-head{
@@ -739,7 +770,7 @@
       align-items:end;
       justify-content:space-between;
       gap:18px;
-      margin-bottom:18px;
+      margin-bottom:16px;
     }
 
     .section-head h2{
@@ -751,9 +782,10 @@
 
     .section-head p{
       margin:0;
-      max-width:58ch;
+      max-width:54ch;
       color:var(--muted);
       line-height:1.65;
+      font-size:15px;
     }
 
     .services-grid{
@@ -764,26 +796,16 @@
 
     .service-card{
       padding:22px;
-      min-height:220px;
+      min-height:210px;
       position:relative;
       overflow:hidden;
-    }
-
-    .service-card::after{
-      content:"";
-      position:absolute;
-      right:-40px;
-      bottom:-40px;
-      width:120px;
-      height:120px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(244,180,0,.14), transparent 70%);
-      pointer-events:none;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025)),
+        radial-gradient(circle at bottom right, rgba(244,180,0,.05), transparent 24%);
     }
 
     .service-icon{
-      width:54px;
-      height:54px;
+      width:54px;height:54px;
       border-radius:18px;
       display:grid;
       place-items:center;
@@ -796,16 +818,16 @@
 
     .service-card h3{
       margin:0 0 8px;
-      font-size:20px;
+      font-size:19px;
       letter-spacing:-.02em;
     }
 
     .service-card p{
       margin:0;
       color:var(--muted);
-      line-height:1.68;
+      line-height:1.65;
       font-size:15px;
-      max-width:34ch;
+      max-width:32ch;
     }
 
     .reviews-grid{
@@ -816,26 +838,43 @@
 
     .review-card{
       padding:22px;
-      min-height:190px;
+      min-height:220px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025)),
+        radial-gradient(circle at top right, rgba(255,255,255,.04), transparent 18%);
     }
 
-    .stars{
-      letter-spacing:.08em;
-      color:#ffd663;
+    .review-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
       margin-bottom:14px;
-      font-size:18px;
+    }
+
+    .review-name{
+      font-weight:800;
+      font-size:15px;
+      letter-spacing:-.01em;
+    }
+
+    .review-badge{
+      color:#ffd663;
+      font-size:13px;
+      font-weight:800;
+      white-space:nowrap;
     }
 
     .review-card p{
       margin:0 0 18px;
-      color:#dde3eb;
+      color:#e1e7ef;
       line-height:1.7;
       font-size:15px;
     }
 
     .review-author{
       color:var(--muted);
-      font-size:14px;
+      font-size:13px;
       font-weight:700;
     }
 
@@ -847,6 +886,9 @@
 
     .contact-card{
       padding:26px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025)),
+        radial-gradient(circle at top right, rgba(244,180,0,.05), transparent 24%);
     }
 
     .contact-card h3{
@@ -858,7 +900,9 @@
     .contact-card p{
       margin:0 0 18px;
       color:var(--muted);
-      line-height:1.7;
+      line-height:1.68;
+      font-size:15px;
+      max-width:42ch;
     }
 
     .contact-list{
@@ -887,9 +931,9 @@
     }
 
     .footer{
-      padding:26px 0 42px;
+      padding:26px 0 40px;
       color:#8e9baa;
-      font-size:14px;
+      font-size:13px;
     }
 
     .footer-inner{
@@ -901,7 +945,9 @@
       border-top:1px solid rgba(255,255,255,.06);
     }
 
-    /* ============= FLOAT WA ============= */
+    /* =========================
+       WHATSAPP FLOTANTE
+       ========================= */
     .float-wrap{
       position:fixed;
       right:max(16px, env(safe-area-inset-right));
@@ -934,11 +980,8 @@
     }
 
     .float-btn{
-      width:64px;
-      height:64px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
+      width:64px;height:64px;border-radius:50%;
+      display:grid;place-items:center;
       background:linear-gradient(180deg, var(--wa), var(--wa-dark));
       color:#fff;
       box-shadow:
@@ -948,12 +991,12 @@
     }
 
     .float-btn svg{
-      width:30px;
-      height:30px;
-      fill:currentColor;
+      width:30px;height:30px;fill:currentColor;
     }
 
-    /* ============= REVEAL ============= */
+    /* =========================
+       REVEAL
+       ========================= */
     .reveal{
       opacity:0;
       transform:translateY(18px);
@@ -964,7 +1007,9 @@
       transform:none;
     }
 
-    /* ============= ANIMATIONS ============= */
+    /* =========================
+       ANIMACIONES
+       ========================= */
     @keyframes roomGlow{
       0%{opacity:.95}
       12%{opacity:.95}
@@ -1036,8 +1081,10 @@
       50%{transform:scale(1.06)}
     }
 
-    /* ============= RESPONSIVE ============= */
-    @media (max-width: 1080px){
+    /* =========================
+       RESPONSIVE
+       ========================= */
+    @media (max-width:1080px){
       .intro-content,
       .hero-grid,
       .contact-grid{
@@ -1049,31 +1096,22 @@
         width:min(100%, 540px);
       }
 
-      .hero-points,
+      .hero-bottom,
       .services-grid,
       .reviews-grid{
         grid-template-columns:1fr 1fr;
       }
     }
 
-    @media (max-width: 720px){
-      :root{--topbar-h:70px}
+    @media (max-width:720px){
+      :root{--topbar-h:68px}
 
       .wrap{
         width:min(100% - 20px, var(--container));
       }
 
-      .nav{
-        display:none;
-      }
-
-      .topbar-right{
-        gap:10px;
-      }
-
-      .intro{
-        min-height:100svh;
-      }
+      .nav{display:none}
+      .topbar-right{gap:10px}
 
       .intro-content{
         gap:18px;
@@ -1083,10 +1121,11 @@
       }
 
       .intro-copy h1{
-        max-width:12ch;
+        max-width:11ch;
       }
 
       .intro-card{
+        width:100%;
         padding:20px;
         border-radius:24px;
       }
@@ -1103,13 +1142,14 @@
         border-radius:24px;
       }
 
-      .hero-card{
-        padding:22px;
-      }
-
+      .hero-card,
       .panel,
       .contact-card{
         padding:20px;
+      }
+
+      .hero-card{
+        min-height:auto;
       }
 
       .hero-title{
@@ -1120,14 +1160,14 @@
         font-size:15.5px;
       }
 
-      .hero-points,
+      .hero-bottom,
       .services-grid,
       .reviews-grid,
       .contact-grid{
         grid-template-columns:1fr;
       }
 
-      .point,
+      .mini-feature,
       .service-card,
       .review-card{
         min-height:auto;
@@ -1160,8 +1200,7 @@
       }
 
       .float-btn{
-        width:60px;
-        height:60px;
+        width:60px;height:60px;
       }
 
       .popup{
@@ -1195,12 +1234,8 @@
         transform:none;
         pointer-events:auto;
       }
-      body{
-        overflow:auto;
-      }
-      .intro{
-        display:none;
-      }
+      body{overflow:auto}
+      .intro{display:none}
     }
   </style>
 </head>
@@ -1226,13 +1261,13 @@
         <span class="intro-kicker">Electricista en Córdoba</span>
         <h1>Cuando la electricidad falla, respondemos.</h1>
         <p>
-          Instalaciones, urgencias, tableros e iluminación. Atención directa y rápida por WhatsApp.
+          Urgencias, instalaciones y soluciones claras. Contacto directo por WhatsApp.
         </p>
 
         <div class="intro-actions">
           <a
             class="btn-wa"
-            href="https://wa.me/543513882783?text=Hola%20Facu%2C%20necesito%20una%20consulta%20el%C3%A9ctrica"
+            href="https://wa.me/543513882783?text=Hola%20Facu%2C%20necesito%20una%20soluci%C3%B3n%20el%C3%A9ctrica"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Abrir WhatsApp"
@@ -1241,7 +1276,7 @@
               <path d="M19.11 17.19c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.19-.32.21-.6.07-.28-.14-1.16-.43-2.22-1.36-.82-.73-1.38-1.63-1.54-1.9-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.19-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.01-.22-.54-.45-.47-.61-.48h-.52c-.18 0-.47.07-.72.35-.25.28-.95.93-.95 2.27s.98 2.64 1.12 2.82c.14.19 1.93 2.95 4.68 4.13.65.28 1.16.45 1.55.57.65.21 1.24.18 1.71.11.52-.08 1.65-.67 1.88-1.31.23-.65.23-1.21.16-1.31-.06-.11-.24-.18-.52-.32Z"></path>
               <path d="M16.03 3.2c-6.96 0-12.6 5.64-12.6 12.6 0 2.22.58 4.3 1.58 6.11L3 29l7.28-1.91a12.54 12.54 0 0 0 5.75 1.39h.01c6.96 0 12.61-5.64 12.61-12.6 0-3.37-1.31-6.54-3.7-8.92A12.52 12.52 0 0 0 16.03 3.2Zm0 22.98h-.01a10.4 10.4 0 0 1-5.29-1.45l-.38-.22-4.32 1.13 1.15-4.21-.25-.43a10.37 10.37 0 0 1-1.6-5.54c0-5.74 4.67-10.41 10.42-10.41 2.78 0 5.39 1.08 7.36 3.05a10.34 10.34 0 0 1 3.05 7.36c0 5.74-4.67 10.42-10.43 10.42Z"></path>
             </svg>
-            <span>WhatsApp</span>
+            <span>Escribirme ahora</span>
           </a>
 
           <a class="btn-dark" href="#inicio">Ver sitio</a>
@@ -1252,18 +1287,18 @@
         <span class="status-pill">Atención en línea</span>
 
         <div class="mini-card">
-          <div class="mini-label">Servicio</div>
-          <div class="mini-title">Urgencias y reparaciones</div>
+          <div class="mini-label">Urgencias</div>
+          <div class="mini-title">Respuesta rápida</div>
           <p class="mini-text">
-            Respuesta rápida para fallas eléctricas, cortes, tableros y problemas de iluminación.
+            Cortes, fallas, tableros e iluminación. Contacto simple y directo.
           </p>
         </div>
 
         <div class="mini-card">
-          <div class="mini-label">Contacto directo</div>
+          <div class="mini-label">Contacto</div>
           <div class="mini-title">351 388 2783</div>
           <p class="mini-text">
-            Coordinación clara por WhatsApp o llamada, sin vueltas.
+            WhatsApp y llamada para coordinar sin vueltas.
           </p>
         </div>
       </aside>
@@ -1284,7 +1319,7 @@
             <a href="#resenas">Reseñas</a>
             <a href="#contacto">Contacto</a>
           </nav>
-          <span class="online-badge">En línea</span>
+          <span class="online-badge">Disponible</span>
         </div>
       </div>
     </header>
@@ -1293,16 +1328,18 @@
       <section class="hero" id="inicio">
         <div class="wrap hero-grid">
           <article class="hero-card reveal">
-            <span class="eyebrow">Electricista en Córdoba</span>
-            <h2 class="hero-title">Soluciones eléctricas rápidas y claras.</h2>
+            <span class="eyebrow">Electricista · Córdoba</span>
+
+            <h2 class="hero-title">Soluciones eléctricas, sin demoras.</h2>
+
             <p class="hero-text">
-              Instalaciones, reparaciones, iluminación, tableros y urgencias. Atención directa por WhatsApp, sin vueltas.
+              Instalaciones, reparaciones, tableros, iluminación y urgencias. Atención directa por WhatsApp.
             </p>
 
             <div class="hero-actions">
               <a
                 class="btn-wa"
-                href="https://wa.me/543513882783?text=Hola%20Facu%2C%20necesito%20una%20consulta%20el%C3%A9ctrica"
+                href="https://wa.me/543513882783?text=Hola%20Facu%2C%20necesito%20una%20soluci%C3%B3n%20el%C3%A9ctrica"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Abrir WhatsApp"
@@ -1311,26 +1348,32 @@
                   <path d="M19.11 17.19c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.19-.32.21-.6.07-.28-.14-1.16-.43-2.22-1.36-.82-.73-1.38-1.63-1.54-1.9-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.19-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.01-.22-.54-.45-.47-.61-.48h-.52c-.18 0-.47.07-.72.35-.25.28-.95.93-.95 2.27s.98 2.64 1.12 2.82c.14.19 1.93 2.95 4.68 4.13.65.28 1.16.45 1.55.57.65.21 1.24.18 1.71.11.52-.08 1.65-.67 1.88-1.31.23-.65.23-1.21.16-1.31-.06-.11-.24-.18-.52-.32Z"></path>
                   <path d="M16.03 3.2c-6.96 0-12.6 5.64-12.6 12.6 0 2.22.58 4.3 1.58 6.11L3 29l7.28-1.91a12.54 12.54 0 0 0 5.75 1.39h.01c6.96 0 12.61-5.64 12.61-12.6 0-3.37-1.31-6.54-3.7-8.92A12.52 12.52 0 0 0 16.03 3.2Zm0 22.98h-.01a10.4 10.4 0 0 1-5.29-1.45l-.38-.22-4.32 1.13 1.15-4.21-.25-.43a10.37 10.37 0 0 1-1.6-5.54c0-5.74 4.67-10.41 10.42-10.41 2.78 0 5.39 1.08 7.36 3.05a10.34 10.34 0 0 1 3.05 7.36c0 5.74-4.67 10.42-10.43 10.42Z"></path>
                 </svg>
-                <span>WhatsApp</span>
+                <span>Pedir solución por WhatsApp</span>
               </a>
 
               <a class="btn-outline" href="tel:+543513882783">Llamar ahora</a>
             </div>
 
-            <div class="hero-points">
-              <div class="point">
-                <strong>Atención rápida</strong>
-                <span>Respondemos por WhatsApp y coordinamos sin demoras.</span>
-              </div>
+            <div class="hero-mini-proof">
+              <span class="proof-pill">Atención rápida</span>
+              <span class="proof-pill">Trabajo prolijo</span>
+              <span class="proof-pill">Contacto directo</span>
+            </div>
 
-              <div class="point">
-                <strong>Trabajo prolijo</strong>
-                <span>Soluciones claras para hogar, departamento o local.</span>
-              </div>
-
-              <div class="point">
+            <div class="hero-bottom">
+              <div class="mini-feature">
                 <strong>Urgencias</strong>
-                <span>Cuando hay una falla, necesitás respuesta inmediata.</span>
+                <span>Cuando hay una falla, necesitás respuesta clara y rápida.</span>
+              </div>
+
+              <div class="mini-feature">
+                <strong>Instalaciones</strong>
+                <span>Trabajos eléctricos para hogar, departamento o local.</span>
+              </div>
+
+              <div class="mini-feature">
+                <strong>Iluminación y tableros</strong>
+                <span>Mejoras, revisiones y soluciones prácticas.</span>
               </div>
             </div>
           </article>
@@ -1339,12 +1382,13 @@
             <div class="panel reveal">
               <div class="panel-label">Contacto directo</div>
 
-              <div class="phone-box">
+              <div class="panel-card phone-box">
                 <small>Teléfono / WhatsApp</small>
                 <strong>351 388 2783</strong>
+
                 <a
                   class="btn-wa"
-                  href="https://wa.me/543513882783?text=Hola%20Facu%2C%20necesito%20una%20consulta%20el%C3%A9ctrica"
+                  href="https://wa.me/543513882783?text=Hola%20Facu%2C%20necesito%20una%20soluci%C3%B3n%20el%C3%A9ctrica"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -1361,7 +1405,7 @@
                   <div class="contact-icon">⚡</div>
                   <div class="contact-copy">
                     <strong>Instalaciones y reparaciones</strong>
-                    <span>Soluciones eléctricas generales para vivienda o comercio.</span>
+                    <span>Soluciones eléctricas generales y resolución de fallas.</span>
                   </div>
                 </div>
 
@@ -1369,7 +1413,7 @@
                   <div class="contact-icon">💡</div>
                   <div class="contact-copy">
                     <strong>Iluminación</strong>
-                    <span>Colocación, mejoras y revisión de funcionamiento.</span>
+                    <span>Colocación, mejora y revisión de puntos de luz.</span>
                   </div>
                 </div>
 
@@ -1377,7 +1421,7 @@
                   <div class="contact-icon">🔧</div>
                   <div class="contact-copy">
                     <strong>Tableros</strong>
-                    <span>Mantenimiento, orden y resolución de fallas frecuentes.</span>
+                    <span>Orden, mantenimiento y corrección de problemas frecuentes.</span>
                   </div>
                 </div>
               </div>
@@ -1393,7 +1437,7 @@
               <h2>Servicios</h2>
             </div>
             <p>
-              Una web corta, clara y orientada a que el cliente entienda rápido qué hacés y cómo contactarte.
+              Lo justo para que el cliente entienda rápido qué hacés y pueda contactarte enseguida.
             </p>
           </div>
 
@@ -1410,15 +1454,15 @@
               <div class="service-icon">💡</div>
               <h3>Iluminación</h3>
               <p>
-                Colocación de luces, renovación de puntos de luz y soluciones para mejor visibilidad y estética.
+                Colocación de luces, renovación y mejoras para hogares, departamentos y locales.
               </p>
             </article>
 
             <article class="service-card reveal">
               <div class="service-icon">🔧</div>
-              <h3>Reparaciones</h3>
+              <h3>Urgencias y reparaciones</h3>
               <p>
-                Diagnóstico de fallas, cortes, problemas en tableros y resolución rápida según el caso.
+                Diagnóstico de fallas, cortes y problemas eléctricos con atención rápida.
               </p>
             </article>
           </div>
@@ -1432,33 +1476,42 @@
               <h2>Reseñas</h2>
             </div>
             <p>
-              Comentarios simples y creíbles, para transmitir confianza sin alargar de más la página.
+              Comentarios más reales y creíbles, con tono simple y humano.
             </p>
           </div>
 
           <div class="reviews-grid">
             <article class="review-card reveal">
-              <div class="stars">★★★★★</div>
+              <div class="review-top">
+                <span class="review-name">Mariana G.</span>
+                <span class="review-badge">★★★★★</span>
+              </div>
               <p>
-                “Muy buena atención. Respondió rápido y dejó todo funcionando correctamente.”
+                “Le escribí por una falla en casa y respondió rápido. Vino, revisó el problema y lo dejó resuelto ese mismo día.”
               </p>
-              <div class="review-author">Cliente particular</div>
+              <div class="review-author">Barrio General Paz · Córdoba</div>
             </article>
 
             <article class="review-card reveal">
-              <div class="stars">★★★★★</div>
+              <div class="review-top">
+                <span class="review-name">Lucas R.</span>
+                <span class="review-badge">★★★★★</span>
+              </div>
               <p>
-                “Trabajo claro y prolijo. Se notó experiencia y explicó todo de forma simple.”
+                “Muy buena atención. Me explicó todo de forma clara y el trabajo quedó prolijo. Lo volvería a llamar.”
               </p>
-              <div class="review-author">Cliente residencial</div>
+              <div class="review-author">Nueva Córdoba</div>
             </article>
 
             <article class="review-card reveal">
-              <div class="stars">★★★★★</div>
+              <div class="review-top">
+                <span class="review-name">Carolina M.</span>
+                <span class="review-badge">★★★★★</span>
+              </div>
               <p>
-                “Lo volvería a llamar. Necesitaba resolverlo rápido y respondió enseguida.”
+                “Necesitaba resolver un problema en el tablero y contestó enseguida. Se notó experiencia y buena predisposición.”
               </p>
-              <div class="review-author">Cliente en Córdoba</div>
+              <div class="review-author">Cerro de las Rosas</div>
             </article>
           </div>
         </div>
@@ -1468,15 +1521,15 @@
         <div class="wrap">
           <div class="contact-grid">
             <article class="contact-card reveal">
-              <h3>Contacto rápido</h3>
+              <h3>¿Necesitás resolverlo hoy?</h3>
               <p>
-                Si necesitás consultar por una instalación, una reparación o una urgencia, escribí directamente.
+                Escribí directo por WhatsApp y contame qué necesitás. Te respondo a la brevedad.
               </p>
 
               <div class="hero-actions">
                 <a
                   class="btn-wa"
-                  href="https://wa.me/543513882783?text=Hola%20Facu%2C%20necesito%20una%20consulta%20el%C3%A9ctrica"
+                  href="https://wa.me/543513882783?text=Hola%20Facu%2C%20necesito%20una%20soluci%C3%B3n%20el%C3%A9ctrica"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -1484,17 +1537,17 @@
                     <path d="M19.11 17.19c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.19-.32.21-.6.07-.28-.14-1.16-.43-2.22-1.36-.82-.73-1.38-1.63-1.54-1.9-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.19-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.01-.22-.54-.45-.47-.61-.48h-.52c-.18 0-.47.07-.72.35-.25.28-.95.93-.95 2.27s.98 2.64 1.12 2.82c.14.19 1.93 2.95 4.68 4.13.65.28 1.16.45 1.55.57.65.21 1.24.18 1.71.11.52-.08 1.65-.67 1.88-1.31.23-.65.23-1.21.16-1.31-.06-.11-.24-.18-.52-.32Z"></path>
                     <path d="M16.03 3.2c-6.96 0-12.6 5.64-12.6 12.6 0 2.22.58 4.3 1.58 6.11L3 29l7.28-1.91a12.54 12.54 0 0 0 5.75 1.39h.01c6.96 0 12.61-5.64 12.61-12.6 0-3.37-1.31-6.54-3.7-8.92A12.52 12.52 0 0 0 16.03 3.2Zm0 22.98h-.01a10.4 10.4 0 0 1-5.29-1.45l-.38-.22-4.32 1.13 1.15-4.21-.25-.43a10.37 10.37 0 0 1-1.6-5.54c0-5.74 4.67-10.41 10.42-10.41 2.78 0 5.39 1.08 7.36 3.05a10.34 10.34 0 0 1 3.05 7.36c0 5.74-4.67 10.42-10.43 10.42Z"></path>
                   </svg>
-                  <span>WhatsApp</span>
+                  <span>Hablar por WhatsApp</span>
                 </a>
 
-                <a class="btn-outline" href="tel:+543513882783">Llamar ahora</a>
+                <a class="btn-outline" href="tel:+543513882783">Llamar</a>
               </div>
             </article>
 
             <article class="contact-card reveal">
-              <h3>Datos</h3>
+              <h3>Contacto</h3>
               <p>
-                Información visible y directa, para que el cliente no tenga que buscar demasiado.
+                Información visible y simple para que el cliente no pierda tiempo buscando.
               </p>
 
               <div class="contact-list">
@@ -1520,7 +1573,7 @@
     <footer class="footer">
       <div class="wrap footer-inner">
         <span>© VOLTEX · Electricista en Córdoba</span>
-        <span>Atención rápida · Contacto directo · Soluciones claras</span>
+        <span>Atención rápida · Trabajo prolijo · Contacto directo</span>
       </div>
     </footer>
   </div>
@@ -1529,7 +1582,7 @@
     <div class="popup" id="popup"></div>
     <a
       class="float-btn"
-      href="https://wa.me/543513882783?text=Hola%20Facu%2C%20necesito%20una%20consulta%20el%C3%A9ctrica"
+      href="https://wa.me/543513882783?text=Hola%20Facu%2C%20necesito%20una%20soluci%C3%B3n%20el%C3%A9ctrica"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Abrir WhatsApp"
@@ -1551,12 +1604,11 @@
 
       const popupMessages = [
         "Hola, soy Facu 👋 Escribime por WhatsApp.",
-        "¿Tenés una urgencia? Contactame ahora.",
-        "Un chequeo eléctrico a tiempo evita problemas."
+        "¿Tenés una urgencia? Consultame ahora.",
+        "Respondemos rápido y sin vueltas."
       ];
 
       let popupIndex = 0;
-      let popupInterval = null;
       let introFinished = false;
 
       function startPopupLoop() {
@@ -1574,7 +1626,7 @@
         }
 
         showPopup();
-        popupInterval = setInterval(showPopup, 7600);
+        setInterval(showPopup, 7600);
       }
 
       function finishIntro() {
