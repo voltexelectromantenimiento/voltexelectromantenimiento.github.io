@@ -1,808 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VOLTEX | Electricista en Córdoba</title>
-  <meta name="description" content="Electricista en Córdoba. Instalaciones, reparaciones, tableros, iluminación y urgencias. Atención rápida por WhatsApp y teléfono." />
-  <meta name="theme-color" content="#f4b400" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0e1116;
-      --bg-soft: #171b22;
-      --panel: #121720;
-      --panel-2: #1a2130;
-      --text: #f6f8fb;
-      --muted: #a9b2bf;
-      --line: rgba(255,255,255,0.09);
-      --accent: #f4b400;
-      --accent-2: #ffd24d;
-      --success: #25d366;
-      --shadow: 0 18px 50px rgba(0,0,0,0.28);
-      --radius: 24px;
-      --max: 1140px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(244,180,0,0.12), transparent 24%),
-        radial-gradient(circle at 90% 10%, rgba(255,210,77,0.08), transparent 20%),
-        linear-gradient(180deg, #0c1015 0%, #0e1116 100%);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .wrap {
-      width: min(calc(100% - 28px), var(--max));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(12,16,21,0.82);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .topbar-inner {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      font-size: 0.96rem;
-    }
-
-    .brand-mark {
-      width: 13px;
-      height: 13px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 20px rgba(244,180,0,0.5);
-      flex: 0 0 auto;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      color: var(--muted);
-      padding: 10px 14px;
-      border-radius: 999px;
-      transition: 0.2s ease;
-      font-size: 0.95rem;
-    }
-
-    .nav a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
-
-    .header-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #161200;
-      font-weight: 800;
-      box-shadow: 0 12px 24px rgba(244,180,0,0.22);
-    }
-
-    .hero {
-      padding: 28px 0 18px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    .hero-card,
-    .info-card,
-    .service-card,
-    .review-card,
-    .trust-band,
-    .contact-card,
-    .footer-box {
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card {
-      padding: 34px;
-      min-height: 520px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(244,180,0,0.18), transparent 18%),
-        linear-gradient(135deg, rgba(255,255,255,0.02), transparent 55%);
-      pointer-events: none;
-    }
-
-    .hero-copy { position: relative; z-index: 1; max-width: 660px; }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-height: 38px;
-      padding: 0 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #f8dc85;
-      font-size: 0.9rem;
-      margin-bottom: 18px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 12px rgba(244,180,0,0.8);
-    }
-
-    h1 {
-      font-size: clamp(2.25rem, 7vw, 4.9rem);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
-      font-weight: 800;
-      max-width: 10.5ch;
-    }
-
-    .hero-copy p {
-      margin-top: 16px;
-      color: var(--muted);
-      font-size: clamp(1rem, 2vw, 1.08rem);
-      max-width: 52ch;
-      line-height: 1.65;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .btn,
-    .btn-outline,
-    .btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-weight: 800;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .btn:hover,
-    .btn-outline:hover,
-    .btn-whatsapp:hover,
-    .float-whatsapp:hover { transform: translateY(-2px); }
-
-    .btn {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #181300;
-      box-shadow: 0 14px 28px rgba(244,180,0,0.2);
-    }
-
-    .btn-outline {
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .point {
-      padding: 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .point strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .point span {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.45;
-    }
-
-    .hero-side {
-      display: grid;
-      gap: 16px;
-    }
-
-    .info-card {
-      padding: 22px;
-    }
-
-    .phone-box {
-      padding: 18px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(244,180,0,0.14), rgba(255,210,77,0.08));
-      border: 1px solid rgba(255,255,255,0.08);
-      margin-top: 12px;
-    }
-
-    .phone-box small {
-      display: block;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .phone-box strong {
-      display: block;
-      font-size: clamp(1.35rem, 3vw, 1.9rem);
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
-    }
-
-    .btn-whatsapp {
-      width: 100%;
-      background: linear-gradient(135deg, #25d366, #6be495);
-      color: #04210f;
-      box-shadow: 0 12px 26px rgba(37,211,102,0.18);
-    }
-
-    .info-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .info-item {
-      display: flex;
-      gap: 12px;
-      align-items: start;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .info-item:last-child { border-bottom: 0; padding-bottom: 0; }
-
-    .dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-top: 6px;
-      flex: 0 0 auto;
-    }
-
-    .info-item strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 0.98rem;
-    }
-
-    .info-item span {
-      color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.55;
-    }
-
-    .section {
-      padding: 22px 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.7rem, 4vw, 2.8rem);
-      letter-spacing: -0.04em;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      max-width: 54ch;
-      line-height: 1.6;
-    }
-
-    .services-grid,
-    .reviews-grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .reviews-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
-    .service-card,
-    .review-card {
-      padding: 22px;
-    }
-
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(244,180,0,0.16), rgba(255,210,77,0.1));
-      border: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 16px;
-      font-size: 1.25rem;
-    }
-
-    .service-card h3,
-    .review-card h3,
-    .contact-card h2 {
-      font-size: 1.18rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
-    }
-
-    .service-card p,
-    .review-card p,
-    .contact-card p,
-    .footer-box p {
-      color: var(--muted);
-      line-height: 1.65;
-      font-size: 0.96rem;
-    }
-
-    .trust-band {
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 16px;
-      align-items: center;
-      margin-top: 18px;
-    }
-
-    .trust-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: flex-end;
-    }
-
-    .trust-tags span {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .stars {
-      color: #ffd24d;
-      letter-spacing: 0.08em;
-      margin-bottom: 10px;
-      font-size: 0.98rem;
-    }
-
-    .review-name {
-      display: inline-block;
-      margin-top: 12px;
-      color: #edf2f8;
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .contact-card {
-      margin-top: 18px;
-      padding: 26px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .contact-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .footer {
-      padding: 18px 0 36px;
-    }
-
-    .footer-box {
-      padding: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .footer-badges span {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .float-whatsapp {
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      z-index: 60;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #25d366, #6be495);
-      color: #082212;
-      font-size: 1.5rem;
-      font-weight: 800;
-      box-shadow: 0 18px 36px rgba(37,211,102,0.25);
-      border: 1px solid rgba(255,255,255,0.15);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-      will-change: opacity, transform;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .services-grid,
-      .reviews-grid,
-      .trust-band,
-      .contact-card {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-actions,
-      .trust-tags {
-        justify-content: flex-start;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .topbar-inner {
-        min-height: 64px;
-      }
-
-      .nav { display: none; }
-      .header-cta { display: none; }
-
-      .hero {
-        padding-top: 18px;
-      }
-
-      .hero-card,
-      .info-card,
-      .service-card,
-      .review-card,
-      .trust-band,
-      .contact-card,
-      .footer-box {
-        border-radius: 20px;
-      }
-
-      .hero-card { padding: 24px 20px; min-height: auto; }
-      .info-card { padding: 20px; }
-      .hero-points { grid-template-columns: 1fr; }
-      .section { padding: 18px 0; }
-      .section-head { margin-bottom: 14px; }
-      .contact-card { padding: 22px 18px; }
-      .float-whatsapp {
-        width: 58px;
-        height: 58px;
-        right: 14px;
-        bottom: 14px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .reveal,
-      .reveal.visible,
-      .btn,
-      .btn-outline,
-      .btn-whatsapp,
-      .float-whatsapp {
-        transition: none;
-        transform: none;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VOLTEX | Electricista en Córdoba</title>
+<meta name="description" content="Electricista en Córdoba. Instalaciones, reparaciones, tableros, iluminación y urgencias. Atención rápida por WhatsApp." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#0e1116;--text:#fff;--muted:#a9b2bf;--accent:#f4b400;--wa:#25d366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter;background:#0e1116;color:#fff}
+a{text-decoration:none;color:inherit}
+
+.topbar{position:sticky;top:0;background:#0e1116;border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
+.topbar-inner{display:flex;justify-content:space-between;align-items:center;padding:14px}
+.brand{font-weight:800;letter-spacing:.15em}
+.online{display:flex;align-items:center;gap:8px;font-size:13px;color:#9fffaf}
+.dot{width:8px;height:8px;background:#25d366;border-radius:50%}
+
+.hero{padding:24px}
+h1{font-size:34px;margin-bottom:12px}
+p{color:var(--muted);margin-bottom:16px}
+
+.btn{display:inline-block;padding:14px 18px;border-radius:999px;font-weight:700}
+.btn-main{background:var(--accent);color:#000}
+.btn-outline{border:1px solid #444}
+
+.section{padding:24px}
+.card{background:#121720;padding:16px;border-radius:16px;margin-bottom:12px}
+
+/* WhatsApp */
+.float-wrap{position:fixed;right:16px;bottom:16px;z-index:50}
+.float-btn{
+width:60px;height:60px;border-radius:50%;
+background:#25d366;display:flex;align-items:center;justify-content:center;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+animation:pulse 2s infinite;
+}
+.float-btn img{width:32px}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+
+.popup{
+position:absolute;right:70px;bottom:0;
+background:#1a1f2a;padding:10px 12px;border-radius:12px;
+font-size:13px;max-width:200px;
+opacity:0;transform:translateY(10px);
+transition:.3s
+}
+.popup.show{opacity:1;transform:translateY(0)}
+
+</style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a href="#inicio" class="brand" aria-label="VOLTEX inicio">
-        <span class="brand-mark"></span>
-        <span>VOLTEX</span>
-      </a>
 
-      <nav class="nav" aria-label="Principal">
-        <a href="#servicios">Servicios</a>
-        <a href="#por-que">Por qué elegirnos</a>
-        <a href="#resenas">Reseñas</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+<header class="topbar">
+<div class="topbar-inner">
+<div class="brand">VOLTEX</div>
+<div class="online"><span class="dot"></span> En línea</div>
+</div>
+</header>
 
-      <a class="header-cta" href="https://wa.me/543513882783?text=Hola%20VOLTEX%2C%20necesito%20una%20consulta" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    </div>
-  </header>
+<section class="hero">
+<h1>Soluciones eléctricas rápidas y claras</h1>
+<p>Instalaciones, reparaciones, iluminación y urgencias. Atención directa por WhatsApp.</p>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="wrap hero-grid">
-        <article class="hero-card reveal">
-          <div class="hero-copy">
-            <div class="eyebrow">Electricista en Córdoba</div>
-            <h1>Soluciones eléctricas claras, rápidas y profesionales.</h1>
-            <p>
-              Instalaciones, reparaciones, tableros, iluminación y mantenimiento eléctrico.
-              Atención directa por WhatsApp o teléfono, sin vueltas y con respuesta rápida.
-            </p>
+<a class="btn btn-main" href="https://wa.me/543513882783?text=Hola%20Facu">WhatsApp</a>
+<a class="btn btn-outline" href="tel:+543513882783">Llamar</a>
+</section>
 
-            <div class="hero-actions">
-              <a class="btn" href="https://wa.me/543513882783?text=Hola%20VOLTEX%2C%20necesito%20una%20consulta" target="_blank" rel="noopener noreferrer">Pedir presupuesto</a>
-              <a class="btn-outline" href="tel:+543513882783">Llamar ahora</a>
-            </div>
+<section class="section">
+<div class="card"><strong>⚡ Instalaciones y reparaciones</strong><br>Soluciones eléctricas generales</div>
+<div class="card"><strong>💡 Iluminación</strong><br>Colocación y mejoras</div>
+<div class="card"><strong>🔧 Tableros</strong><br>Mantenimiento y orden</div>
+</section>
 
-            <div class="hero-points">
-              <div class="point">
-                <strong>Atención rápida</strong>
-                <span>Respondemos por WhatsApp y coordinamos de forma simple.</span>
-              </div>
-              <div class="point">
-                <strong>Trabajo prolijo</strong>
-                <span>Instalaciones y reparaciones con enfoque profesional.</span>
-              </div>
-              <div class="point">
-                <strong>Para hogar y negocio</strong>
-                <span>Soluciones prácticas para casas, departamentos y locales.</span>
-              </div>
-            </div>
-          </div>
-        </article>
+<section class="section">
+<h2>Reseñas</h2>
+<div class="card">★★★★★ Muy buena atención</div>
+<div class="card">★★★★★ Trabajo claro</div>
+<div class="card">★★★★★ Lo volvería a llamar</div>
+</section>
 
-        <aside class="hero-side">
-          <div class="info-card reveal">
-            <p style="color: var(--muted); font-size: 0.9rem;">Contacto directo</p>
-            <div class="phone-box">
-              <small>Teléfono / WhatsApp</small>
-              <strong>351 388 2783</strong>
-              <a class="btn-whatsapp" href="https://wa.me/543513882783?text=Hola%20VOLTEX%2C%20necesito%20una%20consulta" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
-            </div>
-          </div>
+<div class="float-wrap">
+<div class="popup" id="popup"></div>
+<a class="float-btn" href="https://wa.me/543513882783?text=Hola%20Facu">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
+</div>
 
-          <div class="info-card reveal" id="por-que">
-            <div class="info-list">
-              <div class="info-item">
-                <span class="dot"></span>
-                <div>
-                  <strong>Diagnóstico y solución</strong>
-                  <span>Buscamos resolver el problema con rapidez y buena comunicación.</span>
-                </div>
-              </div>
-              <div class="info-item">
-                <span class="dot"></span>
-                <div>
-                  <strong>Presupuesto claro</strong>
-                  <span>Explicación simple del trabajo para que el cliente entienda qué se hace.</span>
-                </div>
-              </div>
-              <div class="info-item">
-                <span class="dot"></span>
-                <div>
-                  <strong>Atención confiable</strong>
-                  <span>Una web pensada para que el contacto sea inmediato y fácil.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
+<script>
+const popup=document.getElementById('popup');
+const msgs=[
+"Hola, soy Facu 👋 escribime por WhatsApp",
+"¿Tenés una urgencia? escribime ahora",
+"Un chequeo eléctrico evita problemas"
+];
+let i=0;
 
-    <section class="section" id="servicios">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Servicios principales</h2>
-          </div>
-          <p>
-            Lo importante entra rápido: qué hacés, cómo contactarte y por qué confiar.
-          </p>
-        </div>
+function show(){
+popup.textContent=msgs[i];
+popup.classList.add('show');
+setTimeout(()=>popup.classList.remove('show'),4000);
+i=(i+1)%msgs.length;
+}
 
-        <div class="services-grid">
-          <article class="service-card reveal">
-            <div class="service-icon">⚡</div>
-            <h3>Instalaciones y reparaciones</h3>
-            <p>Soluciones para fallas, arreglos eléctricos, tomas, llaves, cableado y mejoras generales.</p>
-          </article>
+setTimeout(()=>{
+show();
+setInterval(show,7000);
+},1500);
+</script>
 
-          <article class="service-card reveal">
-            <div class="service-icon">💡</div>
-            <h3>Iluminación y mejoras</h3>
-            <p>Colocación de luminarias, renovación de espacios y mejoras para hogar, comercio u oficina.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-icon">🔧</div>
-            <h3>Tableros y mantenimiento</h3>
-            <p>Revisión, orden, mantenimiento y actualización de instalaciones para mayor seguridad y rendimiento.</p>
-          </article>
-        </div>
-
-        <div class="trust-band reveal">
-          <div>
-            <h2 style="font-size: clamp(1.45rem, 3vw, 2.2rem); letter-spacing: -0.04em; margin-bottom: 8px;">Una web hecha para que te contacten rápido</h2>
-            <p style="color: var(--muted); line-height: 1.65;">
-              Menos texto, menos vueltas y más foco en contacto, claridad y confianza.
-            </p>
-          </div>
-          <div class="trust-tags">
-            <span>WhatsApp visible</span>
-            <span>Diseño corto</span>
-            <span>Mobile first</span>
-            <span>Contacto inmediato</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="resenas">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Reseñas</h2>
-          </div>
-          <p>
-            Podés reemplazar estos textos por reseñas reales de clientes cuando las tengas.
-          </p>
-        </div>
-
-        <div class="reviews-grid">
-          <article class="review-card reveal">
-            <div class="stars">★★★★★</div>
-            <h3>Muy buena atención</h3>
-            <p>Respondieron rápido, explicaron bien el trabajo y dejaron todo prolijo.</p>
-            <span class="review-name">Cliente particular</span>
-          </article>
-
-          <article class="review-card reveal">
-            <div class="stars">★★★★★</div>
-            <h3>Trabajo claro y ordenado</h3>
-            <p>Necesitábamos resolver un problema eléctrico y la atención fue rápida y profesional.</p>
-            <span class="review-name">Comercio local</span>
-          </article>
-
-          <article class="review-card reveal">
-            <div class="stars">★★★★★</div>
-            <h3>Los volvería a llamar</h3>
-            <p>Muy buena comunicación desde el primer mensaje. Se nota seriedad y compromiso.</p>
-            <span class="review-name">Cliente recomendado</span>
-          </article>
-        </div>
-
-        <div class="contact-card reveal" id="contacto">
-          <div>
-            <h2>¿Necesitás una solución eléctrica?</h2>
-            <p>Escribinos por WhatsApp o llamanos. La web está pensada para que el cliente llegue a vos en segundos.</p>
-          </div>
-          <div class="contact-actions">
-            <a class="btn" href="https://wa.me/543513882783?text=Hola%20VOLTEX%2C%20necesito%20una%20consulta" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a class="btn-outline" href="tel:+543513882783">351 388 2783</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footer-box reveal">
-        <div>
-          <strong style="font-size: 1.04rem; letter-spacing: 0.16em;">VOLTEX</strong>
-          <p style="margin-top: 8px;">Servicio eléctrico en Córdoba.</p>
-        </div>
-        <div class="footer-badges">
-          <span>351 388 2783</span>
-          <span>WhatsApp</span>
-          <span>Atención rápida</span>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <a class="float-whatsapp" href="https://wa.me/543513882783?text=Hola%20VOLTEX%2C%20necesito%20una%20consulta" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp">✆</a>
-
-  <script>
-    const revealItems = document.querySelectorAll('.reveal');
-
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      revealItems.forEach((item) => observer.observe(item));
-    } else {
-      revealItems.forEach((item) => item.classList.add('visible'));
-    }
-  </script>
 </body>
 </html>
