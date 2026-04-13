@@ -82,7 +82,7 @@
     }
 
     /* =========================
-       INTRO
+       INTRO PRO
        ========================= */
     .intro{
       position:relative;
@@ -92,9 +92,9 @@
       overflow:hidden;
       isolation:isolate;
       background:
-        radial-gradient(circle at 20% 20%, rgba(244,180,0,.12), transparent 24%),
-        radial-gradient(circle at 80% 14%, rgba(255,255,255,.05), transparent 16%),
-        linear-gradient(180deg, #0a0f14 0%, #070a0f 100%);
+        radial-gradient(circle at 50% 12%, rgba(255,196,64,.10), transparent 18%),
+        radial-gradient(circle at 50% 50%, rgba(244,180,0,.05), transparent 34%),
+        linear-gradient(180deg, #05080d 0%, #08111a 48%, #05080d 100%);
     }
 
     .intro::before{
@@ -102,129 +102,123 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.58)),
-        linear-gradient(120deg, rgba(255,255,255,.03), transparent 24%);
+        linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.52)),
+        radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,.18) 60%, rgba(0,0,0,.42) 100%);
       z-index:-2;
     }
 
-    .intro-room{
+    .intro-scene{
       position:absolute;
       inset:0;
       overflow:hidden;
       z-index:-1;
-    }
-
-    .ceiling-glow,
-    .window-glow,
-    .lamp-glow,
-    .spark,
-    .flash,
-    .blackout{
-      position:absolute;
       pointer-events:none;
     }
 
-    .ceiling-glow{
-      top:-10vh;
-      left:50%;
-      transform:translateX(-50%);
-      width:min(90vw, 940px);
-      height:44vh;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(255,216,102,.24) 0%, rgba(255,186,28,.1) 34%, rgba(0,0,0,0) 72%);
-      filter:blur(10px);
-      animation:roomGlow 4.3s ease-in-out forwards;
-      opacity:.95;
-    }
-
-    .window-glow{
-      top:15%;
-      width:18vw;
-      min-width:120px;
-      max-width:240px;
-      height:24vh;
-      min-height:150px;
-      max-height:260px;
-      border-radius:28px;
-      background:
-        linear-gradient(180deg, rgba(255,243,205,.96), rgba(255,208,88,.82)),
-        linear-gradient(180deg, rgba(255,255,255,.24), transparent);
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,.09) inset,
-        0 20px 80px rgba(255,198,71,.14);
-      animation:windowFlicker 4.2s ease-in-out forwards;
-    }
-    .window-glow.left{left:9%}
-    .window-glow.right{right:9%}
-
-    .lamp-glow{
-      top:18%;
-      left:50%;
-      transform:translateX(-50%);
-      width:126px;
-      height:126px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(255,229,145,.96) 0%, rgba(255,198,58,.24) 48%, transparent 72%);
-      filter:blur(4px);
-      animation:lampFlicker 4.1s ease-in-out forwards;
-      opacity:.95;
-    }
-
-    .wall-line{
+    .intro-grid-lines{
       position:absolute;
-      left:0;right:0;bottom:30%;
-      height:1px;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
-      opacity:.4;
-    }
-
-    .floor{
-      position:absolute;
-      left:-8%;
-      right:-8%;
-      bottom:-14%;
-      height:34%;
+      inset:-10%;
       background:
-        linear-gradient(180deg, rgba(244,180,0,.04), transparent 18%),
-        linear-gradient(180deg, #121a25 0%, #0d141b 100%);
-      transform:perspective(800px) rotateX(74deg);
-      border-top:1px solid rgba(255,255,255,.05);
-      opacity:.95;
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size:56px 56px;
+      mask-image:linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.1));
+      opacity:.26;
+      transform:perspective(1000px) rotateX(74deg) scale(1.2);
+      transform-origin:center bottom;
     }
 
-    .spark{
-      width:18px;
-      height:18px;
-      top:28%;
-      left:52%;
+    .intro-energy-core{
+      position:absolute;
+      left:50%;
+      top:32%;
+      transform:translate(-50%, -50%);
+      width:110px;
+      height:110px;
       border-radius:50%;
-      background:radial-gradient(circle, #fff6d8 0%, #ffd25a 36%, rgba(255,180,0,.16) 60%, transparent 72%);
+      background:
+        radial-gradient(circle, rgba(255,248,220,.98) 0%, rgba(255,219,122,.95) 20%, rgba(255,191,49,.46) 45%, rgba(255,170,0,.10) 66%, transparent 76%);
+      filter:blur(1px);
       box-shadow:
-        0 0 18px rgba(255,210,90,.82),
-        0 0 46px rgba(255,175,0,.32);
-      opacity:0;
-      animation:sparkPop 4.1s linear forwards;
+        0 0 30px rgba(255,205,86,.80),
+        0 0 90px rgba(255,179,0,.35),
+        0 0 180px rgba(255,179,0,.18);
+      animation:introCorePulse 3.9s ease-in-out forwards;
     }
 
-    .flash{
-      inset:0;
-      background:#fff6d8;
-      opacity:0;
-      animation:flashBang 4.1s linear forwards;
+    .intro-energy-ring{
+      position:absolute;
+      left:50%;
+      top:32%;
+      transform:translate(-50%, -50%);
+      border-radius:50%;
+      border:1px solid rgba(255,214,107,.24);
+      box-shadow:0 0 30px rgba(255,189,32,.10);
     }
 
-    .blackout{
+    .intro-energy-ring.ring-1{
+      width:210px;
+      height:210px;
+      animation:introRingPulse1 3.9s ease-out forwards;
+    }
+
+    .intro-energy-ring.ring-2{
+      width:330px;
+      height:330px;
+      animation:introRingPulse2 3.9s ease-out forwards;
+    }
+
+    .intro-electric-line{
+      position:absolute;
+      left:50%;
+      top:0;
+      transform:translateX(-50%);
+      width:2px;
+      height:48%;
+      background:
+        linear-gradient(180deg,
+          rgba(255,255,255,0) 0%,
+          rgba(255,244,194,.45) 12%,
+          rgba(255,214,92,.95) 48%,
+          rgba(255,173,31,.12) 100%);
+      box-shadow:
+        0 0 12px rgba(255,214,92,.55),
+        0 0 22px rgba(255,173,31,.24);
+      filter:blur(.2px);
+      animation:introLineFlicker 3.9s linear forwards;
+    }
+
+    .intro-electric-line.line-2{
+      left:auto;
+      right:18%;
+      top:8%;
+      height:24%;
+      transform:none;
+      opacity:.22;
+    }
+
+    .intro-flash{
+      position:absolute;
       inset:0;
-      background:#010203;
+      background:
+        radial-gradient(circle at 50% 32%, rgba(255,248,214,.96), rgba(255,240,183,.72) 12%, rgba(255,219,122,.10) 22%, transparent 34%),
+        linear-gradient(180deg, rgba(255,253,240,.22), transparent 40%);
       opacity:0;
-      animation:blackout 4.1s linear forwards;
+      animation:introFlashReal 3.9s linear forwards;
+    }
+
+    .intro-vignette{
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at center, transparent 32%, rgba(0,0,0,.16) 58%, rgba(0,0,0,.56) 100%);
     }
 
     .intro-content{
       width:min(100% - 32px, 1160px);
       margin-inline:auto;
       display:grid;
-      grid-template-columns:1.15fr .85fr;
+      grid-template-columns:1.1fr .9fr;
       gap:28px;
       align-items:center;
       padding:
@@ -234,9 +228,9 @@
     }
 
     .intro-copy{
-      max-width:620px;
+      max-width:640px;
       z-index:2;
-      animation:introCopyIn .9s ease .9s both;
+      animation:introCopyIn .9s ease .45s both;
     }
 
     .intro-kicker{
@@ -244,30 +238,32 @@
       align-items:center;
       gap:10px;
       padding:10px 14px;
-      border:1px solid rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.10);
       border-radius:999px;
       background:rgba(255,255,255,.04);
-      color:#f1d988;
+      color:#f4dda0;
       font-size:12px;
       font-weight:800;
       letter-spacing:.08em;
       text-transform:uppercase;
       margin-bottom:18px;
-      backdrop-filter:blur(8px);
+      backdrop-filter:blur(10px);
     }
 
     .intro-kicker::before{
       content:"";
-      width:8px;height:8px;border-radius:50%;
+      width:8px;
+      height:8px;
+      border-radius:50%;
       background:var(--accent);
       box-shadow:0 0 0 5px rgba(244,180,0,.14);
     }
 
     .intro-copy h1{
       margin:0 0 14px;
-      font-size:clamp(40px, 7vw, 78px);
-      line-height:.94;
-      letter-spacing:-.05em;
+      font-size:clamp(42px, 7.2vw, 84px);
+      line-height:.92;
+      letter-spacing:-.06em;
       font-weight:900;
       max-width:10ch;
       text-wrap:balance;
@@ -275,10 +271,10 @@
 
     .intro-copy p{
       margin:0;
-      color:var(--muted-2);
+      color:#dbe3ed;
       font-size:clamp(16px, 2.3vw, 19px);
-      line-height:1.68;
-      max-width:48ch;
+      line-height:1.72;
+      max-width:50ch;
     }
 
     .intro-actions{
@@ -290,15 +286,17 @@
 
     .intro-card{
       justify-self:end;
-      width:min(100%, 390px);
+      width:min(100%, 400px);
       padding:24px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-      animation:introCardIn .9s ease 1.1s both;
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:30px;
+      box-shadow:
+        0 24px 80px rgba(0,0,0,.42),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter:blur(16px);
+      animation:introCardIn .9s ease .75s both;
     }
 
     .status-pill{
@@ -357,19 +355,20 @@
       top:calc(16px + env(safe-area-inset-top));
       right:16px;
       z-index:4;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(10,14,20,.55);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(8,12,18,.52);
       color:#eef2f7;
       padding:12px 16px;
       border-radius:999px;
       font-weight:700;
-      backdrop-filter:blur(10px);
+      backdrop-filter:blur(12px);
       transition:transform .2s ease, background .2s ease, border-color .2s ease;
     }
+
     .skip-intro:hover{
       transform:translateY(-1px);
       background:rgba(255,255,255,.08);
-      border-color:rgba(255,255,255,.2);
+      border-color:rgba(255,255,255,.18);
     }
 
     /* =========================
@@ -1010,59 +1009,80 @@
     /* =========================
        ANIMACIONES
        ========================= */
-    @keyframes roomGlow{
-      0%{opacity:.95}
-      12%{opacity:.95}
-      22%{opacity:.74}
-      25%{opacity:1}
-      30%{opacity:.25}
-      36%{opacity:.92}
-      44%{opacity:0}
-      57%{opacity:0}
-      100%{opacity:.34}
+    @keyframes introCorePulse{
+      0%{
+        opacity:0;
+        transform:translate(-50%, -50%) scale(.35);
+        filter:blur(8px);
+      }
+      18%{
+        opacity:1;
+        transform:translate(-50%, -50%) scale(1.18);
+        filter:blur(2px);
+      }
+      28%{
+        transform:translate(-50%, -50%) scale(.92);
+      }
+      40%{
+        transform:translate(-50%, -50%) scale(1.04);
+      }
+      56%{
+        opacity:1;
+      }
+      100%{
+        opacity:.88;
+        transform:translate(-50%, -50%) scale(1);
+        filter:blur(1px);
+      }
     }
 
-    @keyframes windowFlicker{
-      0%,14%{opacity:1; filter:brightness(1)}
-      22%{opacity:.6; filter:brightness(.92)}
-      26%{opacity:1}
-      32%{opacity:.18; filter:brightness(.68)}
-      38%{opacity:.92}
-      44%{opacity:0}
-      58%{opacity:0}
-      100%{opacity:.24}
+    @keyframes introRingPulse1{
+      0%{
+        opacity:0;
+        transform:translate(-50%, -50%) scale(.35);
+      }
+      12%{
+        opacity:.7;
+      }
+      100%{
+        opacity:0;
+        transform:translate(-50%, -50%) scale(1.45);
+      }
     }
 
-    @keyframes lampFlicker{
-      0%,16%{opacity:1}
-      22%{opacity:.55}
-      28%{opacity:1}
-      32%{opacity:.14}
-      39%{opacity:.85}
-      44%{opacity:0}
-      58%{opacity:0}
+    @keyframes introRingPulse2{
+      0%{
+        opacity:0;
+        transform:translate(-50%, -50%) scale(.25);
+      }
+      20%{
+        opacity:.45;
+      }
+      100%{
+        opacity:0;
+        transform:translate(-50%, -50%) scale(1.22);
+      }
+    }
+
+    @keyframes introLineFlicker{
+      0%,8%{opacity:0}
+      10%{opacity:.95}
+      12%{opacity:.22}
+      15%{opacity:1}
+      18%{opacity:.48}
+      21%{opacity:1}
+      28%{opacity:.78}
       100%{opacity:.22}
     }
 
-    @keyframes sparkPop{
-      0%,27%{opacity:0; transform:scale(.2) rotate(0deg)}
-      29%{opacity:1; transform:scale(1.25) rotate(24deg)}
-      30.5%{opacity:0; transform:scale(.1) rotate(-18deg)}
-      100%{opacity:0}
-    }
-
-    @keyframes flashBang{
-      0%,28.8%{opacity:0}
-      29.2%{opacity:.9}
-      29.8%{opacity:0}
-      100%{opacity:0}
-    }
-
-    @keyframes blackout{
-      0%,33%{opacity:0}
-      41%{opacity:.98}
-      56%{opacity:.98}
-      66%{opacity:.42}
+    @keyframes introFlashReal{
+      0%,11%{opacity:0}
+      12%{opacity:.20}
+      14%{opacity:0}
+      17%{opacity:.92}
+      18%{opacity:.18}
+      21%{opacity:.76}
+      22%{opacity:0}
       100%{opacity:0}
     }
 
@@ -1113,21 +1133,57 @@
       .nav{display:none}
       .topbar-right{gap:10px}
 
+      .intro{
+        min-height:100svh;
+      }
+
       .intro-content{
         gap:18px;
         align-items:end;
-        padding-top:max(72px, env(safe-area-inset-top) + 56px);
+        padding-top:max(76px, env(safe-area-inset-top) + 56px);
         padding-bottom:max(20px, env(safe-area-inset-bottom) + 10px);
       }
 
       .intro-copy h1{
         max-width:11ch;
+        font-size:clamp(38px, 12vw, 54px);
+      }
+
+      .intro-copy p{
+        font-size:15px;
+        line-height:1.68;
       }
 
       .intro-card{
         width:100%;
         padding:20px;
         border-radius:24px;
+      }
+
+      .intro-energy-core{
+        top:28%;
+        width:88px;
+        height:88px;
+      }
+
+      .intro-energy-ring.ring-1{
+        width:170px;
+        height:170px;
+      }
+
+      .intro-energy-ring.ring-2{
+        width:250px;
+        height:250px;
+      }
+
+      .intro-electric-line{
+        height:40%;
+      }
+
+      .intro-electric-line.line-2{
+        right:10%;
+        top:10%;
+        height:18%;
       }
 
       .hero{
@@ -1208,16 +1264,6 @@
         font-size:12px;
         padding:10px 12px;
       }
-
-      .window-glow.left{left:4%}
-      .window-glow.right{right:4%}
-      .window-glow{
-        top:14%;
-        width:24vw;
-        min-width:90px;
-        height:20vh;
-        min-height:110px;
-      }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -1242,16 +1288,15 @@
 <body>
 
   <section class="intro" id="intro" aria-label="Presentación VOLTEX">
-    <div class="intro-room" aria-hidden="true">
-      <div class="ceiling-glow"></div>
-      <div class="lamp-glow"></div>
-      <div class="window-glow left"></div>
-      <div class="window-glow right"></div>
-      <div class="wall-line"></div>
-      <div class="floor"></div>
-      <div class="spark"></div>
-      <div class="flash"></div>
-      <div class="blackout"></div>
+    <div class="intro-scene" aria-hidden="true">
+      <div class="intro-grid-lines"></div>
+      <div class="intro-energy-core"></div>
+      <div class="intro-energy-ring ring-1"></div>
+      <div class="intro-energy-ring ring-2"></div>
+      <div class="intro-electric-line"></div>
+      <div class="intro-electric-line line-2"></div>
+      <div class="intro-flash"></div>
+      <div class="intro-vignette"></div>
     </div>
 
     <button class="skip-intro" id="skipIntro" type="button">Saltar intro</button>
@@ -1259,9 +1304,9 @@
     <div class="intro-content">
       <div class="intro-copy">
         <span class="intro-kicker">Electricista en Córdoba</span>
-        <h1>Cuando la electricidad falla, respondemos.</h1>
+        <h1>Se corta la luz. Nosotros lo resolvemos.</h1>
         <p>
-          Urgencias, instalaciones y soluciones claras. Contacto directo por WhatsApp.
+          Urgencias eléctricas, tableros, fallas e instalaciones. Respuesta rápida, atención directa y solución profesional.
         </p>
 
         <div class="intro-actions">
@@ -1279,26 +1324,26 @@
             <span>Escribirme ahora</span>
           </a>
 
-          <a class="btn-dark" href="#inicio">Ver sitio</a>
+          <a class="btn-dark" href="#inicio">Ver servicios</a>
         </div>
       </div>
 
       <aside class="intro-card" aria-label="Resumen de servicios">
-        <span class="status-pill">Atención en línea</span>
+        <span class="status-pill">Disponible ahora</span>
 
         <div class="mini-card">
-          <div class="mini-label">Urgencias</div>
-          <div class="mini-title">Respuesta rápida</div>
+          <div class="mini-label">Respuesta</div>
+          <div class="mini-title">Atención rápida por WhatsApp</div>
           <p class="mini-text">
-            Cortes, fallas, tableros e iluminación. Contacto simple y directo.
+            Cortes, fallas, tableros, iluminación y reparaciones con contacto directo.
           </p>
         </div>
 
         <div class="mini-card">
-          <div class="mini-label">Contacto</div>
+          <div class="mini-label">Contacto directo</div>
           <div class="mini-title">351 388 2783</div>
           <p class="mini-text">
-            WhatsApp y llamada para coordinar sin vueltas.
+            Escribí ahora y coordinamos sin vueltas.
           </p>
         </div>
       </aside>
@@ -1650,7 +1695,7 @@
 
       if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         body.style.overflow = "hidden";
-        setTimeout(finishIntro, 4200);
+        setTimeout(finishIntro, 3900);
       } else {
         body.classList.add("site-ready");
         if (intro) intro.remove();
