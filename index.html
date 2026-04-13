@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electricista Profesional | Córdoba</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD600;
+    --black: #0a0a0a;
+    --dark: #111111;
+    --gray: #1e1e1e;
+    --white: #f5f5f5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 16px; height: 16px;
+    background: var(--yellow);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.2s, height 0.2s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    width: 40px; height: 40px;
+    border: 2px solid var(--yellow);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease-out;
+    opacity: 0.5;
+  }
+
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.3;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(255,214,0,0.08) 0%, transparent 70%),
+      linear-gradient(135deg, #0a0a0a 0%, #1a1a0a 100%);
+  }
+
+  /* Electric lines animation */
+  .electric-lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .electric-lines::before, .electric-lines::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--yellow), transparent);
+    animation: electricFlow 3s ease-in-out infinite;
+    opacity: 0.3;
+  }
+  .electric-lines::before {
+    height: 200px;
+    left: 20%;
+    top: -200px;
+    animation-delay: 0s;
+  }
+  .electric-lines::after {
+    height: 150px;
+    left: 75%;
+    top: -150px;
+    animation-delay: 1.5s;
+  }
+  @keyframes electricFlow {
+    0% { top: -200px; opacity: 0; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
+    100% { top: 110vh; opacity: 0; }
+  }
+
+  nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    border-bottom: 1px solid rgba(255,214,0,0.15);
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+    color: var(--yellow);
+  }
+  .logo span { color: var(--white); }
+
+  .nav-badge {
+    background: var(--yellow);
+    color: var(--black);
+    font-weight: 900;
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,214,0,0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(255,214,0,0); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem;
+    max-width: 900px;
+  }
+
+  .hero-tag {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 15vw, 12rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .hero-title .accent { color: var(--yellow); position: relative; }
+  .hero-title .accent::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--yellow);
+    transform: scaleX(0);
+    animation: scaleIn 0.6s 1.2s forwards;
+  }
+  @keyframes scaleIn { to { transform: scaleX(1); } }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(245,245,245,0.5);
+    margin-top: 2rem;
+    max-width: 500px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-cta {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .btn-primary {
+    background: var(--yellow);
+    color: var(--black);
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1.1rem 2.5rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: white;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+  .btn-primary:hover::before { transform: translateX(0); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,214,0,0.3); }
+  .btn-primary span { position: relative; z-index: 1; }
+
+  .btn-secondary {
+    border: 1px solid rgba(255,214,0,0.4);
+    color: var(--yellow);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1.1rem 2.5rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover {
+    background: rgba(255,214,0,0.1);
+    border-color: var(--yellow);
+  }
+
+  /* Big number decoration */
+  .hero-number {
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25vw;
+    color: rgba(255,214,0,0.03);
+    line-height: 1;
+    user-select: none;
+    z-index: 1;
+  }
+
+  /* ===== TICKER ===== */
+  .ticker {
+    background: var(--yellow);
+    padding: 1rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 20s linear infinite;
+  }
+  .ticker-inner span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    color: var(--black);
+    margin: 0 2rem;
+  }
+  .ticker-inner .dot {
+    color: rgba(0,0,0,0.3);
+    margin: 0 0.5rem;
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ===== SERVICES ===== */
+  .services {
+    padding: 8rem 3rem;
+    position: relative;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .section-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8rem;
+    line-height: 1;
+    color: rgba(255,214,0,0.1);
+    letter-spacing: -0.05em;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .section-title .line { display: block; }
+  .section-title .yellow { color: var(--yellow); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--gray);
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.03);
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--yellow);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { background: #1a1a1a; transform: translateY(-4px); }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .service-num {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .service-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    color: var(--white);
+  }
+
+  .service-desc {
+    color: rgba(245,245,245,0.5);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  /* ===== WHY US ===== */
+  .why {
+    background: var(--yellow);
+    padding: 8rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .why::before {
+    content: 'CALIDAD';
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20vw;
+    color: rgba(0,0,0,0.06);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .why .section-title { color: var(--black); }
+  .why .section-number { color: rgba(0,0,0,0.1); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-top: 5rem;
+  }
+
+  .why-item { position: relative; }
+
+  .why-stat {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: var(--black);
+    line-height: 1;
+    display: block;
+  }
+
+  .why-label {
+    font-weight: 700;
+    font-size: 1rem;
+    color: rgba(0,0,0,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  .why-divider {
+    width: 40px;
+    height: 3px;
+    background: var(--black);
+    margin-bottom: 1rem;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact {
+    padding: 8rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .contact-text .section-title { margin-bottom: 2rem; }
+
+  .contact-text p {
+    color: rgba(245,245,245,0.5);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-card {
+    background: var(--gray);
+    padding: 3rem;
+    border: 1px solid rgba(255,214,0,0.15);
+    position: relative;
+  }
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--yellow);
+  }
+
+  .contact-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .contact-phone {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 2rem;
+    line-height: 1;
+  }
+
+  .whatsapp-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 1.2rem 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    width: 100%;
+    justify-content: center;
+  }
+  .whatsapp-btn:hover {
+    background: #1ebe5a;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+  }
+  .whatsapp-btn svg {
+    width: 24px; height: 24px;
+    fill: white;
+  }
+
+  .contact-info {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: rgba(245,245,245,0.5);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .contact-info-item:last-child { border-bottom: none; }
+  .info-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,214,0,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #050505;
+    border-top: 1px solid rgba(255,214,0,0.1);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer .logo { font-size: 1.4rem; }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: rgba(245,245,245,0.3);
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== FLOATING CTA ===== */
+  .float-cta {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    animation: floatIn 1s 2s both;
+  }
+  @keyframes floatIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .float-cta a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+    transition: all 0.3s;
+  }
+  .float-cta a:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(37,211,102,0.5);
+  }
+  .float-cta svg { width: 22px; height: 22px; fill: white; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    nav { padding: 1.5rem; }
+    .hero-content { padding: 3rem 1.5rem; }
+    .services, .why, .contact { padding: 5rem 1.5rem; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    footer { padding: 1.5rem; flex-direction: column; text-align: center; }
+    .section-header { flex-direction: column; align-items: flex-start; }
+    .contact-phone { font-size: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- FLOATING CTA -->
+<div class="float-cta">
+  <a href="https://wa.me/543513882783" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Consultar ahora
+  </a>
+</div>
+
+<!-- NAV -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="electric-lines"></div>
+  <div class="hero-number">⚡</div>
+
+  <nav>
+    <div class="logo">VOLT<span>EX</span></div>
+    <div class="nav-badge">● Disponible ahora</div>
+  </nav>
+
+  <div class="hero-content">
+    <p class="hero-tag">⚡ Servicio eléctrico profesional · Córdoba</p>
+    <h1 class="hero-title">
+      TU<br>
+      <span class="accent">ELECTRI</span><br>
+      CISTA
+    </h1>
+    <p class="hero-sub">
+      Instalaciones, tableros y soluciones eléctricas con la calidad que tu hogar o negocio necesita.
+    </p>
+    <div class="hero-cta">
+      <a href="https://wa.me/543513882783" class="btn-primary" target="_blank">
+        <span>📲 Pedir presupuesto</span>
+      </a>
+      <a href="#servicios" class="btn-secondary">Ver servicios</a>
+    </div>
+  </div>
+
+  <div></div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>INSTALACIONES ELÉCTRICAS</span><span class="dot">✦</span>
+    <span>TABLEROS Y PROTECCIONES</span><span class="dot">✦</span>
+    <span>MANTENIMIENTO Y SOLUCIONES</span><span class="dot">✦</span>
+    <span>ASESORAMIENTO GRATIS</span><span class="dot">✦</span>
+    <span>INSTALACIONES ELÉCTRICAS</span><span class="dot">✦</span>
+    <span>TABLEROS Y PROTECCIONES</span><span class="dot">✦</span>
+    <span>MANTENIMIENTO Y SOLUCIONES</span><span class="dot">✦</span>
+    <span>ASESORAMIENTO GRATIS</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="section-header">
+    <div>
+      <p style="font-size:0.75rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--yellow);margin-bottom:1rem;">Lo que hacemos</p>
+      <h2 class="section-title">
+        <span class="line">NUESTROS</span>
+        <span class="line yellow">SERVICIOS</span>
+      </h2>
+    </div>
+    <div class="section-number">01</div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <span class="service-icon">🔌</span>
+      <h3 class="service-name">Instalaciones Eléctricas</h3>
+      <p class="service-desc">Instalaciones completas para hogares, comercios e industrias. Trabajo seguro, prolijo y con materiales de primera calidad.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <span class="service-icon">⚙️</span>
+      <h3 class="service-name">Tableros y Protecciones</h3>
+      <p class="service-desc">Instalación y reparación de tableros eléctricos, disyuntores, interruptores diferenciales y sistemas de protección.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <span class="service-icon">🛠️</span>
+      <h3 class="service-name">Mantenimiento y Soluciones</h3>
+      <p class="service-desc">Diagnóstico y resolución de fallas eléctricas. Mantenimiento preventivo para evitar problemas futuros.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="section-header">
+    <div>
+      <p style="font-size:0.75rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:1rem;">Por qué elegirnos</p>
+      <h2 class="section-title">
+        <span class="line">GARANTÍA</span>
+        <span class="line">TOTAL</span>
+      </h2>
+    </div>
+    <div class="section-number">02</div>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-divider"></div>
+      <span class="why-stat">100%</span>
+      <span class="why-label">Trabajos garantizados</span>
+    </div>
+    <div class="why-item">
+      <div class="why-divider"></div>
+      <span class="why-stat">24H</span>
+      <span class="why-label">Respuesta rápida</span>
+    </div>
+    <div class="why-item">
+      <div class="why-divider"></div>
+      <span class="why-stat">★★★★★</span>
+      <span class="why-label">Clientes satisfechos</span>
+    </div>
+    <div class="why-item">
+      <div class="why-divider"></div>
+      <span class="why-stat">$0</span>
+      <span class="why-label">Asesoramiento gratis</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="contact-inner">
+    <div class="contact-text">
+      <p style="font-size:0.75rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--yellow);margin-bottom:1rem;">Hablemos</p>
+      <h2 class="section-title">
+        <span class="line">PEDÍ TU</span>
+        <span class="line yellow">PRESU</span>
+        <span class="line">PUESTO</span>
+      </h2>
+      <p>Contactanos por WhatsApp y te brindamos asesoramiento personalizado sin costo. Respondemos rápido.</p>
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="info-icon">📍</div>
+          <span>Córdoba, Argentina</span>
+        </div>
+        <div class="contact-info-item">
+          <div class="info-icon">⏰</div>
+          <span>Lunes a Sábados · 8:00 - 20:00</span>
+        </div>
+        <div class="contact-info-item">
+          <div class="info-icon">✅</div>
+          <span>Asesoramiento gratuito sin compromiso</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="contact-card">
+        <span class="contact-label">WhatsApp directo</span>
+        <span class="contact-phone">351 388 2783</span>
+        <a href="https://wa.me/543513882783?text=Hola!%20Quiero%20consultar%20sobre%20un%20trabajo%20eléctrico" class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">VOLT<span>EX</span></div>
+  <p class="footer-copy">© 2026 · Electricista Profesional · Córdoba, Argentina</p>
+  <a href="https://wa.me/543513882783" style="color:var(--yellow);font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-decoration:none;">351 388 2783 →</a>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top = mouseY + 'px';
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover effect on interactive elements
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '30px';
+      cursor.style.height = '30px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '16px';
+      cursor.style.height = '16px';
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .why-item, .contact-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
+
