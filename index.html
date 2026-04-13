@@ -3,1675 +3,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voltex Electromantenimiento | Electricista Profesional Córdoba • Presupuesto Gratis HOY</title>
-<meta name="description" content="Electricista profesional en Córdoba. Instalaciones seguras, tableros, mantenimiento preventivo y soluciones rápidas. Presupuesto GRATIS en menos de 1 hora. Garantía total 12 meses. ☎ 351 388 2783">
-<meta name="keywords" content="electricista córdoba, instalaciones eléctricas córdoba, tableros eléctricos, mantenimiento eléctrico, electricista urgente córdoba, presupuesto gratis electricista">
-<meta property="og:title" content="Voltex • El Electricista que tu Hogar o Negocio Merece en Córdoba">
-<meta property="og:description" content="Instalaciones seguras, tableros confiables y mantenimiento que protege lo que más querés. Presupuesto gratis en menos de 1 hora.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://via.placeholder.com/1200x630/FFD600/080808?text=VOLTEX">
-
-<!-- Schema.org - LocalBusiness + Review + Offer -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Voltex Electromantenimiento",
-  "telephone": "+543513882783",
-  "address": {"@type": "PostalAddress", "addressLocality": "Córdoba", "addressCountry": "AR"},
-  "description": "Electricista profesional en Córdoba con más de 500 trabajos realizados y 100% de clientes satisfechos",
-  "priceRange": "$$",
-  "openingHours": "Mo-Sa 08:00-20:00",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Presupuesto Gratis",
-    "itemListElement": [{
-      "@type": "Offer",
-      "itemOffered": {"@type": "Service", "name": "Presupuesto sin cargo"},
-      "price": "0",
-      "priceCurrency": "ARS"
-    }]
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "87"
-  }
-}
-</script>
-
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<title>Voltex Electromantenimiento | Electricista Profesional Córdoba</title>
+<meta name="description" content="Electricista profesional en Córdoba. Instalaciones eléctricas, tableros y mantenimiento de calidad.">
+<meta property="og:title" content="Voltex • Electricista Profesional en Córdoba">
+<meta property="og:description" content="Instalaciones seguras y mantenimiento eléctrico confiable.">
+<meta property="og:image" content="https://via.placeholder.com/1200x630/0A0A0A/FFD600?text=VOLTEX">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --y: #FFD600;
-  --y2: #FFC200;
-  --bk: #080808;
-  --d1: #101010;
-  --d2: #181818;
-  --d3: #222222;
-  --wh: #F0F0F0;
-  --gr: rgba(240,240,240,0.5);
-  --green: #25D366;
-  --ease: cubic-bezier(0.16,1,0.3,1);
+  --bk: #0A0A0A;
+  --gray: #1A1A1A;
+  --text: #E5E5E5;
+  --sub: #AAAAAA;
 }
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
   background: var(--bk);
-  color: var(--wh);
-  font-family: 'Barlow', sans-serif;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
 }
 
-/* ─── LOADER ─── */
-#loader {
-  position: fixed; inset: 0;
-  background: var(--bk);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2rem;
-  transition: opacity 0.6s var(--ease), visibility 0.6s;
-}
-#loader.done { opacity: 0; visibility: hidden; }
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
 
-.loader-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  letter-spacing: 0.2em;
-  color: var(--y);
-  overflow: hidden;
-}
-.loader-logo span { color: var(--wh); }
-
-.loader-bar-wrap {
-  width: 200px;
-  height: 2px;
-  background: rgba(255,214,0,0.2);
-  overflow: hidden;
-}
-.loader-bar {
-  height: 100%;
-  background: var(--y);
-  width: 0%;
-  transition: width 1.5s var(--ease);
-}
-.loader-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.3em;
-  color: rgba(255,214,0,0.6);
-}
-
-/* ─── PROGRESS BAR ─── */
-#progress {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  background: var(--y);
-  z-index: 1000;
-  width: 0%;
-  transition: width 0.1s linear;
-  box-shadow: 0 0 10px rgba(255,214,0,0.5);
-}
-
-/* ─── CURSOR ─── */
-.cursor {
-  width: 12px; height: 12px;
-  background: var(--y);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%,-50%);
-  transition: width 0.2s, height 0.2s, background 0.2s;
-  mix-blend-mode: difference;
-}
-.cursor-ring {
-  width: 36px; height: 36px;
-  border: 1.5px solid rgba(255,214,0,0.6);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9997;
-  transform: translate(-50%,-50%);
-  transition: width 0.3s, height 0.3s, opacity 0.3s;
-}
-body:hover .cursor-ring { opacity: 1; }
-
-/* ─── NAV ─── */
+/* NAV */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 500;
+  z-index: 1000;
+  padding: 1.5rem 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 4rem;
-  transition: all 0.4s var(--ease);
+  transition: all 0.4s ease;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(12px);
 }
-nav.scrolled {
-  background: rgba(8,8,8,0.95);
-  backdrop-filter: blur(20px);
-  padding: 1rem 4rem;
-  border-bottom: 1px solid rgba(255,214,0,0.1);
-}
-
+nav.scrolled { padding: 1rem 5rem; }
 .logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
-  letter-spacing: 0.15em;
+  font-size: 1.8rem;
+  font-weight: 600;
   color: var(--y);
   text-decoration: none;
-}
-.logo em { color: var(--wh); font-style: normal; }
-
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
 }
 .nav-links a {
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(240,240,240,0.6);
+  color: var(--sub);
   text-decoration: none;
-  transition: color 0.2s;
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 1px;
-  background: var(--y);
-  transition: width 0.3s var(--ease);
+  margin-left: 2.5rem;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 .nav-links a:hover { color: var(--y); }
-.nav-links a:hover::after { width: 100%; }
 
-.nav-cta {
-  background: var(--y);
-  color: var(--bk) !important;
-  font-weight: 900 !important;
-  padding: 0.6rem 1.4rem;
-  letter-spacing: 0.15em;
-  transition: all 0.2s !important;
-}
-.nav-cta:hover { background: white !important; }
-.nav-cta::after { display: none !important; }
-
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  nav { padding: 1.2rem 1.5rem; }
-  nav.scrolled { padding: 0.8rem 1.5rem; }
-}
-
-/* ─── HERO ─── */
+/* HERO */
 .hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: 1fr auto;
-  position: relative;
-  overflow: hidden;
-  padding-top: 5rem;
-}
-
-.hero-grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(255,214,0,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,214,0,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  animation: gridMove 20s linear infinite;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-}
-@keyframes gridMove {
-  from { transform: translateY(0); }
-  to { transform: translateY(60px); }
-}
-
-.hero-glow {
-  position: absolute;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(255,214,0,0.12) 0%, transparent 70%);
-  top: 10%; right: -100px;
-  animation: glowPulse 4s ease-in-out infinite;
-}
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-}
-
-.bolts {
-  position: absolute; inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-.bolt {
-  position: absolute;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--y), transparent);
-  animation: boltFall linear infinite;
-  opacity: 0;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 10;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 4rem;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://picsum.photos/id/1015/2000/1200') center/cover;
+}
+.hero-content {
   max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5rem;
+  z-index: 2;
 }
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--y);
-  margin-bottom: 2rem;
-  opacity: 0;
-  animation: slideIn 1s 1.8s var(--ease) forwards;
-}
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: 30px; height: 1px;
-  background: var(--y);
-}
-.live-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #22c55e;
-  animation: livePulse 2s infinite;
-  box-shadow: 0 0 0 0 rgba(34,197,94,0.4);
-}
-@keyframes livePulse {
-  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
-  70% { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
-  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
-}
-
-.hero-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(5rem, 14vw, 11rem);
-  line-height: 0.88;
-  letter-spacing: -0.02em;
-  overflow: hidden;
-}
-.title-line {
-  display: block;
-  overflow: hidden;
-}
-.title-word {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(100%);
-  animation: wordReveal 0.9s var(--ease) forwards;
-}
-.title-word.yellow { color: var(--y); }
-.title-word:nth-child(1) { animation-delay: 2s; }
-.title-word:nth-child(2) { animation-delay: 2.15s; }
-.title-word:nth-child(3) { animation-delay: 2.3s; }
-
-@keyframes wordReveal {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.hero-sub {
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  color: var(--gr);
-  max-width: 520px;
-  line-height: 1.75;
-  margin-top: 2.5rem;
-  opacity: 0;
-  animation: slideIn 1s 2.5s var(--ease) forwards;
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 3rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: slideIn 1s 2.7s var(--ease) forwards;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1rem 2.2rem;
-  transition: all 0.3s var(--ease);
-  position: relative;
-  overflow: hidden;
-}
-.btn-y {
-  background: var(--y);
-  color: var(--bk);
-}
-.btn-y::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: white;
-  transform: translateX(-101%);
-  transition: transform 0.4s var(--ease);
-}
-.btn-y:hover::before { transform: translateX(0); }
-.btn-y:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,214,0,0.25); }
-.btn-y > * { position: relative; z-index: 1; }
-
-.btn-o {
-  border: 1px solid rgba(255,214,0,0.35);
-  color: var(--y);
-}
-.btn-o:hover {
-  background: rgba(255,214,0,0.08);
-  border-color: var(--y);
-  transform: translateY(-3px);
-}
-
-/* Trust badges */
-.hero-trust {
-  display: flex;
-  gap: 2rem;
-  margin-top: 4rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: slideIn 1s 2.9s var(--ease) forwards;
-}
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.8rem;
-  color: rgba(240,240,240,0.45);
-  letter-spacing: 0.05em;
-}
-.trust-item strong { color: var(--wh); }
-
-/* Hero bottom stat strip */
-.hero-stats {
-  position: relative;
-  z-index: 10;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid rgba(255,214,0,0.1);
-  opacity: 0;
-  animation: slideIn 1s 3.1s var(--ease) forwards;
-}
-.hero-stat {
-  padding: 2rem;
-  border-right: 1px solid rgba(255,214,0,0.1);
-  text-align: center;
-  transition: background 0.3s;
-}
-.hero-stat:last-child { border-right: none; }
-.hero-stat:hover { background: rgba(255,214,0,0.04); }
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.5rem;
-  color: var(--y);
-  display: block;
-  line-height: 1;
-}
-.stat-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gr);
-  margin-top: 0.4rem;
-}
-
-@media (max-width: 768px) {
-  .hero-inner { padding: 0 1.5rem; }
-  .hero-stats { grid-template-columns: repeat(2,1fr); }
-  .hero-stat { padding: 1.2rem; }
-}
-
-/* ─── TICKER ─── */
-.ticker-wrap {
-  background: var(--y);
-  padding: 0.9rem 0;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.ticker-track {
-  display: inline-flex;
-  animation: tick 25s linear infinite;
-}
-.ticker-track:hover { animation-play-state: paused; }
-.tick-item {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.25em;
-  color: var(--bk);
-  padding: 0 2.5rem;
-}
-.tick-sep {
-  color: rgba(0,0,0,0.25);
-  padding: 0 0.5rem;
-}
-@keyframes tick {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* ─── SECTION BASE ─── */
-.section {
-  padding: 10rem 4rem;
-}
-.s-label {
-  font-size: 0.72rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--y);
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 1.5rem;
-}
-.s-label::before {
-  content: '';
-  display: block;
-  width: 24px; height: 1px;
-  background: var(--y);
-}
-.s-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-}
-.s-title .acc { color: var(--y); }
-
-@media (max-width: 768px) {
-  .section { padding: 6rem 1.5rem; }
-}
-
-/* ─── PROBLEMAS COMUNES (nueva sección) ─── */
-.problemas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 6rem;
-}
-.problema {
-  background: var(--d2);
-  padding: 2.5rem 2rem;
-  border-radius: 8px;
-  transition: all 0.4s var(--ease);
-  text-align: center;
-}
-.problema:hover {
-  transform: translateY(-8px);
-  background: var(--d3);
-  box-shadow: 0 20px 40px rgba(255,214,0,0.15);
-}
-.problema-icon {
-  font-size: 3rem;
+.hero-content h1 {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 1.05;
   margin-bottom: 1rem;
 }
-.problema h3 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
-  margin-bottom: 0.8rem;
+.hero-content .highlight { color: var(--y); }
+.hero-content p {
+  font-size: 1.35rem;
+  max-width: 520px;
+  color: var(--sub);
+  margin-bottom: 2.5rem;
 }
-
-/* ─── SERVICES ─── */
-.services-layout {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 8rem;
-  align-items: start;
-  margin-top: 6rem;
-}
-.services-sticky {
-  position: sticky;
-  top: 8rem;
-}
-.services-desc {
-  color: var(--gr);
-  line-height: 1.8;
-  margin-top: 2rem;
-  font-size: 1.05rem;
-}
-.services-contact {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-top: 3rem;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--y);
+.btn {
+  display: inline-block;
+  background: var(--y);
+  color: #000;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255,214,0,0.3);
-  padding-bottom: 0.5rem;
   transition: all 0.3s;
 }
-.services-contact:hover { border-color: var(--y); gap: 1.2rem; }
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(255, 214, 0, 0.3);
+}
 
-.service-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
+/* SECTIONS */
+section {
+  padding: 120px 5rem;
 }
-.svc {
-  background: var(--d2);
-  border: 1px solid rgba(255,255,255,0.04);
-  padding: 2.5rem 3rem;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 2rem;
-  align-items: center;
-  transition: all 0.4s var(--ease);
-  cursor: default;
-  position: relative;
-  overflow: hidden;
-}
-.svc::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-  background: var(--y);
-  transform: scaleY(0);
-  transition: transform 0.4s var(--ease);
-}
-.svc:hover { background: var(--d3); transform: translateX(6px); }
-.svc:hover::before { transform: scaleY(1); }
-
-.svc-icon {
-  font-size: 2.5rem;
-  width: 60px;
+.section-title {
+  font-size: 3.2rem;
   text-align: center;
-}
-.svc-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3.5rem;
-  color: rgba(255,255,255,0.04);
-  line-height: 1;
-  user-select: none;
-}
-.svc-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-}
-.svc-desc {
-  font-size: 0.9rem;
-  color: var(--gr);
-  line-height: 1.6;
-}
-.svc-tag {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  margin-bottom: 4rem;
   color: var(--y);
-  background: rgba(255,214,0,0.08);
-  padding: 0.3rem 0.8rem;
-  white-space: nowrap;
 }
 
-@media (max-width: 900px) {
-  .services-layout { grid-template-columns: 1fr; gap: 3rem; }
-  .services-sticky { position: static; }
-  .svc { grid-template-columns: auto 1fr; }
-  .svc-num { display: none; }
-}
-
-/* ─── POR QUÉ VOL TEX (nueva sección) ─── */
-.why-grid {
+/* SERVICES */
+.services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  margin-top: 6rem;
 }
-.why-card {
-  background: var(--d2);
+.service-card {
+  background: var(--gray);
   padding: 3rem 2rem;
+  border-radius: 16px;
+  transition: all 0.4s ease;
   text-align: center;
-  border: 1px solid rgba(255,214,0,0.1);
-  transition: all 0.4s var(--ease);
 }
-.why-card:hover {
-  border-color: var(--y);
-  transform: translateY(-12px);
+.service-card:hover {
+  transform: translateY(-15px);
+  background: #222;
+  box-shadow: 0 20px 40px rgba(255, 214, 0, 0.1);
 }
-.why-icon {
+.service-card .icon {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
 }
 
-/* ─── PROCESS ─── */
-.process-bg {
-  background: var(--d1);
+/* PROCESS */
+.process {
+  background: #111;
 }
-.process-grid {
+.process-steps {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin-top: 6rem;
-  border: 1px solid rgba(255,255,255,0.06);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
 }
 .step {
-  padding: 3rem 2.5rem;
-  border-right: 1px solid rgba(255,255,255,0.06);
-  position: relative;
-  transition: background 0.3s;
+  text-align: center;
 }
-.step:last-child { border-right: none; }
-.step:hover { background: rgba(255,214,0,0.03); }
-.step-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 5rem;
-  color: rgba(255,214,0,0.08);
-  line-height: 1;
-  display: block;
-  margin-bottom: 1.5rem;
-}
-.step-icon {
-  font-size: 2rem;
-  display: block;
-  margin-bottom: 1rem;
-}
-.step-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.8rem;
-}
-.step-desc {
-  font-size: 0.9rem;
-  color: var(--gr);
-  line-height: 1.65;
-}
-.step-connector {
-  position: absolute;
-  top: 4rem; right: -12px;
-  width: 24px; height: 24px;
-  background: var(--y);
-  clip-path: polygon(0 50%, 60% 0, 100% 50%, 60% 100%);
-  z-index: 1;
-}
-.step:last-child .step-connector { display: none; }
-
-@media (max-width: 900px) {
-  .process-grid { grid-template-columns: 1fr 1fr; }
-  .step { border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .step-connector { display: none; }
-}
-@media (max-width: 540px) {
-  .process-grid { grid-template-columns: 1fr; }
+.step-number {
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(255,214,0,0.15);
+  margin-bottom: -20px;
 }
 
-/* ─── TESTIMONIALS ─── */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 5rem;
+/* TESTIMONIALS */
+.testimonials {
+  background: var(--gray);
 }
-.testi {
-  background: var(--d2);
-  border: 1px solid rgba(255,255,255,0.05);
+.testimonial {
+  background: #1A1A1A;
   padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  transition: all 0.3s var(--ease);
-  position: relative;
-  overflow: hidden;
-}
-.testi::after {
-  content: '"';
-  position: absolute;
-  bottom: -1rem; right: 1.5rem;
-  font-family: Georgia, serif;
-  font-size: 8rem;
-  color: rgba(255,214,0,0.06);
-  line-height: 1;
-}
-.testi:hover {
-  border-color: rgba(255,214,0,0.2);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-}
-.testi-stars {
-  color: var(--y);
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-}
-.testi-text {
-  font-size: 0.95rem;
-  color: var(--gr);
-  line-height: 1.75;
+  border-radius: 16px;
   font-style: italic;
 }
-.testi-author {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: auto;
-}
-.testi-avatar {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: var(--y);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
-  color: var(--bk);
-  flex-shrink: 0;
-}
-.testi-name {
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-.testi-role {
-  font-size: 0.78rem;
-  color: var(--gr);
-}
 
-@media (max-width: 900px) {
-  .testimonials-grid { grid-template-columns: 1fr; }
-}
-
-/* ─── COVERAGE ─── */
-.coverage-bg { background: var(--d1); }
-.coverage-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8rem;
-  align-items: center;
-  margin-top: 5rem;
-}
-.zones-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-.zone {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.9rem;
-  color: var(--gr);
-  padding: 0.8rem 1rem;
-  background: var(--d2);
-  border: 1px solid rgba(255,255,255,0.04);
-  transition: all 0.2s;
-}
-.zone:hover { border-color: rgba(255,214,0,0.2); color: var(--wh); }
-.zone::before {
-  content: '⚡';
-  font-size: 0.75rem;
-}
-
-.coverage-visual {
-  background: var(--d2);
-  border: 1px solid rgba(255,214,0,0.1);
-  padding: 4rem;
+/* CONTACT */
+.contact {
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  background: #0A0A0A;
 }
-.coverage-visual::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at center, rgba(255,214,0,0.06) 0%, transparent 70%);
-}
-.coverage-map-text {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 8rem;
-  color: rgba(255,214,0,0.08);
-  line-height: 1;
-}
-.coverage-city {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.5rem;
+.contact h2 { margin-bottom: 1rem; }
+.phone {
+  font-size: 3rem;
+  font-weight: 600;
   color: var(--y);
-  letter-spacing: 0.1em;
-  position: relative;
-  z-index: 1;
-}
-.coverage-sub {
-  font-size: 0.85rem;
-  color: var(--gr);
-  margin-top: 0.5rem;
-  position: relative;
-  z-index: 1;
-  letter-spacing: 0.1em;
+  margin: 2rem 0;
 }
 
-@media (max-width: 900px) {
-  .coverage-inner { grid-template-columns: 1fr; gap: 3rem; }
-}
-
-/* ─── FAQ (nueva sección) ─── */
-.faq {
-  background: var(--d1);
-}
-.faq-item {
-  background: var(--d2);
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.05);
-}
-.faq-item summary {
-  padding: 2rem 2.5rem;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.faq-item summary::after {
-  content: '+';
-  font-size: 2rem;
-  transition: transform 0.3s;
-}
-.faq-item[open] summary::after {
-  transform: rotate(45deg);
-}
-.faq-item p {
-  padding: 0 2.5rem 2rem;
-  color: var(--gr);
-  line-height: 1.7;
-}
-
-/* ─── CONTACT ─── */
-.contact-layout {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 8rem;
-  align-items: center;
-  margin-top: 5rem;
-}
-.contact-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.c-card {
-  background: var(--d2);
-  border: 1px solid rgba(255,255,255,0.05);
-  padding: 2.5rem;
-  position: relative;
-  transition: all 0.3s var(--ease);
-}
-.c-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--y);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s var(--ease);
-}
-.c-card:hover::before { transform: scaleX(1); }
-.c-card:hover { border-color: rgba(255,214,0,0.15); }
-
-.c-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--y);
-  margin-bottom: 0.8rem;
-}
-.c-value {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.2rem;
-  letter-spacing: 0.05em;
-  line-height: 1;
-}
-
-.wa-mega {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  background: var(--green);
-  color: white;
-  text-decoration: none;
-  padding: 1.6rem 2rem;
-  font-weight: 900;
-  font-size: 1rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  transition: all 0.3s var(--ease);
-  position: relative;
-  overflow: hidden;
-}
-.wa-mega::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: rgba(255,255,255,0.15);
-  transform: translateX(-101%);
-  transition: transform 0.4s var(--ease);
-}
-.wa-mega:hover::before { transform: translateX(0); }
-.wa-mega:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(37,211,102,0.35); }
-.wa-mega svg { width: 26px; height: 26px; fill: white; }
-
-.contact-info-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-top: 2rem;
-}
-.c-info {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  color: var(--gr);
-  font-size: 0.9rem;
-  padding: 1.2rem 1.5rem;
-  border: 1px solid rgba(255,255,255,0.04);
-  background: var(--d2);
-  transition: all 0.2s;
-}
-.c-info:hover { border-color: rgba(255,214,0,0.15); color: var(--wh); }
-.c-info-icon {
-  width: 42px; height: 42px;
-  background: rgba(255,214,0,0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  border: 1px solid rgba(255,214,0,0.15);
-}
-
-@media (max-width: 900px) {
-  .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
-}
-
-/* ─── FOOTER ─── */
+/* FOOTER */
 footer {
-  border-top: 1px solid rgba(255,214,0,0.1);
-  background: #040404;
-}
-.footer-top {
-  padding: 4rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4rem;
-  align-items: start;
-}
-.footer-brand .logo { font-size: 2rem; }
-.footer-tagline {
-  font-size: 0.85rem;
-  color: var(--gr);
-  margin-top: 0.8rem;
-  max-width: 300px;
-  line-height: 1.6;
-}
-.footer-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-.footer-links a {
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gr);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: var(--y); }
-.footer-bottom {
-  padding: 1.5rem 4rem;
-  border-top: 1px solid rgba(255,255,255,0.04);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.footer-copy { font-size: 0.78rem; color: rgba(240,240,240,0.25); letter-spacing: 0.1em; }
-.footer-phone {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.15em;
-  color: var(--y);
-  text-decoration: none;
+  background: #050505;
+  padding: 3rem 5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--sub);
 }
 
-@media (max-width: 768px) {
-  .footer-top { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
-  .footer-links { flex-wrap: wrap; gap: 1rem; }
-  .footer-bottom { padding: 1.2rem 1.5rem; flex-direction: column; text-align: center; }
-}
-
-/* ─── FLOATING WA ─── */
-.float-wa {
-  position: fixed;
-  bottom: 2rem; right: 2rem;
-  z-index: 200;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s var(--ease);
-}
-.float-wa.show { opacity: 1; transform: translateY(0); }
-.float-wa a {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  background: var(--green);
-  color: white;
-  text-decoration: none;
-  padding: 1rem 1.5rem;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  box-shadow: 0 8px 30px rgba(37,211,102,0.4);
-  transition: all 0.3s var(--ease);
-}
-.float-wa a:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 15px 50px rgba(37,211,102,0.5);
-}
-.float-wa svg { width: 22px; height: 22px; fill: white; }
-
-/* ─── REVEAL ANIMATION ─── */
+/* INTERACTIVE */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-
-@keyframes boltFall {
-  0% { top: -20%; opacity: 0; }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.6; }
-  100% { top: 110%; opacity: 0; }
-}
-
-/* ─── COUNTER ─── */
-.counter { display: inline-block; }
-
-/* FAQ extra style */
-.faq summary {
-  list-style: none;
-}
 </style>
 </head>
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-logo">VOLT<span>EX</span></div>
-  <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
-  <div class="loader-num" id="loaderNum">0%</div>
-</div>
-
-<!-- SCROLL PROGRESS -->
-<div id="progress"></div>
-
-<!-- CURSOR -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- FLOATING WA -->
-<div class="float-wa" id="floatWa">
-  <a href="https://wa.me/543513882783?text=Hola%20Voltex%2C%20quiero%20mi%20presupuesto%20GRATIS%20HOY" target="_blank">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    ¡PRESUPUESTO GRATIS EN 60 MINUTOS!
-  </a>
-</div>
-
-<!-- NAV -->
 <nav id="nav">
-  <a href="#" class="logo">VOLT<em>EX</em></a>
-  <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#porque">Por qué Voltex</a></li>
-    <li><a href="#testimonios">Clientes</a></li>
-    <li><a href="#zonas">Zonas</a></li>
-    <li><a href="#preguntas">Preguntas</a></li>
-    <li><a href="#contacto" class="nav-cta">Presupuesto GRATIS</a></li>
-  </ul>
+  <a href="#" class="logo">VOLTEX</a>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#testimonios">Clientes</a>
+    <a href="#contacto">Contacto</a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<header class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="bolts" id="bolts"></div>
-
-  <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <div class="live-dot"></div>
-      DISPONIBLE AHORA · CÓRDOBA CAPITAL Y GRAN CÓRDOBA
-    </div>
-    <h1 class="hero-title">
-      <span class="title-line"><span class="title-word">TU</span></span>
-      <span class="title-line"><span class="title-word yellow">ELECTRI</span></span>
-      <span class="title-line"><span class="title-word">CISTA</span></span>
-    </h1>
-    <p class="hero-sub">Evitá riesgos, cortes inesperados y gastos innecesarios.<br>Instalaciones seguras, tableros confiables y mantenimiento profesional.<br><strong>Presupuesto GRATIS en menos de 1 hora. Garantía total 12 meses.</strong></p>
-    <div class="hero-actions">
-      <a href="https://wa.me/543513882783?text=Hola%20Voltex%2C%20quiero%20mi%20presupuesto%20GRATIS%20HOY" class="btn btn-y" target="_blank">
-        <span>📲</span><span>OBTENÉ TU PRESUPUESTO GRATIS AHORA</span>
-      </a>
-      <a href="#servicios" class="btn btn-o">Ver todo lo que hacemos →</a>
-    </div>
-    <div class="hero-trust">
-      <div class="trust-item"><strong>✓</strong> Respuesta en menos de 1 hora</div>
-      <div class="trust-item"><strong>✓</strong> Garantía 12 meses en todo</div>
-      <div class="trust-item"><strong>✓</strong> +500 trabajos realizados</div>
-      <div class="trust-item"><strong>✓</strong> Materiales premium</div>
-      <div class="trust-item"><strong>✓</strong> 100% clientes felices</div>
-    </div>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Electricidad <span class="highlight">segura</span><br>y profesional</h1>
+    <p>Instalaciones, tableros y mantenimiento eléctrico en Córdoba con estándares de calidad exigentes.</p>
+    <a href="https://wa.me/543513882783" class="btn" target="_blank">Hablar con un electricista</a>
   </div>
+</section>
 
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <span class="stat-num"><span class="counter" data-target="500">0</span>+</span>
-      <span class="stat-label">Trabajos realizados</span>
+<!-- SERVICIOS -->
+<section id="servicios">
+  <h2 class="section-title reveal">Nuestros Servicios</h2>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="icon">🔌</div>
+      <h3>Instalaciones Eléctricas</h3>
+      <p>Hogares, comercios e industrias. Desde cero o ampliaciones.</p>
     </div>
-    <div class="hero-stat">
-      <span class="stat-num"><span class="counter" data-target="8">0</span>+</span>
-      <span class="stat-label">Años de experiencia</span>
+    <div class="service-card reveal">
+      <div class="icon">⚡</div>
+      <h3>Tableros y Protecciones</h3>
+      <p>Instalación y actualización de tableros eléctricos seguros.</p>
     </div>
-    <div class="hero-stat">
-      <span class="stat-num"><span class="counter" data-target="100">0</span>%</span>
-      <span class="stat-label">Clientes satisfechos</span>
-    </div>
-    <div class="hero-stat">
-      <span class="stat-num">$0</span>
-      <span class="stat-label">Presupuesto y asesoramiento</span>
-    </div>
-  </div>
-</header>
-
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-track">
-    <span class="tick-item">INSTALACIONES ELÉCTRICAS SEGURAS</span><span class="tick-sep">✦</span>
-    <span class="tick-item">TABLEROS QUE NO FALLAN NUNCA</span><span class="tick-sep">✦</span>
-    <span class="tick-item">MANTENIMIENTO PREVENTIVO</span><span class="tick-sep">✦</span>
-    <span class="tick-item">PRESUPUESTO GRATIS EN 60 MINUTOS</span><span class="tick-sep">✦</span>
-    <span class="tick-item">GARANTÍA TOTAL 12 MESES</span><span class="tick-sep">✦</span>
-    <span class="tick-item">CÓRDOBA Y ZONA · SIN SORPRESAS</span><span class="tick-sep">✦</span>
-    <span class="tick-item">INSTALACIONES ELÉCTRICAS SEGURAS</span><span class="tick-sep">✦</span>
-    <span class="tick-item">TABLEROS QUE NO FALLAN NUNCA</span><span class="tick-sep">✦</span>
-    <span class="tick-item">MANTENIMIENTO PREVENTIVO</span><span class="tick-sep">✦</span>
-    <span class="tick-item">PRESUPUESTO GRATIS EN 60 MINUTOS</span><span class="tick-sep">✦</span>
-    <span class="tick-item">GARANTÍA TOTAL 12 MESES</span><span class="tick-sep">✦</span>
-  </div>
-</div>
-
-<!-- PROBLEMAS COMUNES -->
-<section class="section">
-  <div class="s-label reveal">Problemas que resolvemos todos los días</div>
-  <h2 class="s-title reveal reveal-delay-1">TU INSTALACIÓN <span class="acc">ESTÁ EN RIESGO?</span></h2>
-  <div class="problemas-grid">
-    <div class="problema reveal">
-      <div class="problema-icon">⚠️</div>
-      <h3>Tablero que salta constantemente</h3>
-      <p>Disyuntores viejos, sobrecargas y peligro de incendio. Lo cambiamos por uno seguro y moderno.</p>
-    </div>
-    <div class="problema reveal reveal-delay-1">
-      <div class="problema-icon">🔌</div>
-      <h3>Luces que parpadean o se apagan</h3>
-      <p>Instalación defectuosa o cables en mal estado. Lo diagnosticamos y arreglamos en el mismo día.</p>
-    </div>
-    <div class="problema reveal reveal-delay-2">
-      <div class="problema-icon">🔥</div>
-      <h3>Riesgo de cortocircuito o incendio</h3>
-      <p>Puesta a tierra inexistente o cables viejos. Te protegemos con soluciones reglamentarias.</p>
-    </div>
-    <div class="problema reveal reveal-delay-3">
-      <div class="problema-icon">💰</div>
-      <h3>Gastos altos de luz</h3>
-      <p>Iluminación ineficiente y pérdidas de energía. Te hacemos ahorrar con LED y automatización.</p>
+    <div class="service-card reveal">
+      <div class="icon">🛠️</div>
+      <h3>Mantenimiento</h3>
+      <p>Revisión y solución de fallas con diagnóstico preciso.</p>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section" id="servicios">
-  <div class="services-layout">
-    <div class="services-sticky">
-      <div class="s-label reveal">Nuestros servicios</div>
-      <h2 class="s-title reveal reveal-delay-1">LO QUE HACEMOS<br><span class="acc">EXCELENTE</span></h2>
-      <p class="services-desc reveal reveal-delay-2">Cada trabajo se hace con materiales de primera, técnicas actualizadas y la obsesión de que tu familia o negocio esté 100% protegido. No vendemos solo electricidad… vendemos tranquilidad.</p>
-      <a href="https://wa.me/543513882783?text=Hola%20Voltex%2C%20quiero%20mi%20presupuesto%20GRATIS%20HOY" class="services-contact reveal reveal-delay-3" target="_blank">Pedir presupuesto en 60 minutos →</a>
-    </div>
-    <div class="service-list">
-      <div class="svc reveal">
-        <span class="svc-icon">🔌</span>
-        <div>
-          <div class="svc-name">Instalaciones Eléctricas Completas</div>
-          <div class="svc-desc">Desde cero o ampliaciones. Tu hogar o negocio seguro, moderno y eficiente. Sin cortes de luz inesperados nunca más.</div>
-        </div>
-        <div class="svc-num">01</div>
-      </div>
-      <div class="svc reveal reveal-delay-1">
-        <span class="svc-icon">⚙️</span>
-        <div>
-          <div class="svc-name">Tableros y Protecciones Eléctricas</div>
-          <div class="svc-desc">Tableros nuevos, disyuntores y diferenciales de última generación. La seguridad de tu familia en un solo clic.</div>
-        </div>
-        <div class="svc-num">02</div>
-      </div>
-      <div class="svc reveal reveal-delay-2">
-        <span class="svc-icon">🛠️</span>
-        <div>
-          <div class="svc-name">Mantenimiento Preventivo</div>
-          <div class="svc-desc">Revisamos y evitamos fallas antes de que ocurran. Ahorro en reparaciones futuras y total tranquilidad.</div>
-        </div>
-        <div class="svc-num">03</div>
-      </div>
-      <div class="svc reveal reveal-delay-3">
-        <span class="svc-icon">💡</span>
-        <div>
-          <div class="svc-name">Iluminación LED + Automatización</div>
-          <div class="svc-desc">Iluminación inteligente, sensores y domótica básica. Menos consumo, más confort y estilo.</div>
-        </div>
-        <div class="svc-num">04</div>
-      </div>
-      <div class="svc reveal reveal-delay-4">
-        <span class="svc-icon">🔋</span>
-        <div>
-          <div class="svc-name">Puesta a Tierra y Seguridad Total</div>
-          <div class="svc-desc">Normas IRAM y EPEC. Protección contra rayos y auditorías completas. Tu instalación 100% reglamentaria.</div>
-        </div>
-        <div class="svc-num">05</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- POR QUÉ VOL TEX -->
-<section class="section" id="porque">
-  <div class="s-label reveal">La diferencia Voltex</div>
-  <h2 class="s-title reveal reveal-delay-1">POR QUÉ LOS CORDOBESES<br><span class="acc">NOS ELIJEN</span></h2>
-  <div class="why-grid">
-    <div class="why-card reveal">
-      <div class="why-icon">⚡</div>
-      <h3>Respuesta inmediata</h3>
-      <p>Te respondemos por WhatsApp en menos de 60 minutos. Presupuesto claro el mismo día.</p>
-    </div>
-    <div class="why-card reveal reveal-delay-1">
-      <div class="why-icon">🛡️</div>
-      <h3>Garantía real de 12 meses</h3>
-      <p>Si algo falla, volvemos sin cargo. Mano de obra y materiales 100% garantizados.</p>
-    </div>
-    <div class="why-card reveal reveal-delay-2">
-      <div class="why-icon">📍</div>
-      <h3>Trabajo prolijo y limpio</h3>
-      <p>Dejamos tu casa o negocio más ordenado que como lo encontramos. Siempre.</p>
-    </div>
-    <div class="why-card reveal reveal-delay-3">
-      <div class="why-icon">💰</div>
-      <h3>Precio justo y transparente</h3>
-      <p>Sin sorpresas ni cobros extras. Te mostramos el presupuesto por escrito antes de empezar.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="section process-bg" id="proceso">
-  <div class="s-label reveal">Cómo trabajamos</div>
-  <h2 class="s-title reveal reveal-delay-1">4 PASOS PARA<br><span class="acc">TU TRANQUILIDAD</span></h2>
-  <div class="process-grid">
+<!-- PROCESO -->
+<section id="proceso" class="process">
+  <h2 class="section-title reveal">Cómo Trabajamos</h2>
+  <div class="process-steps">
     <div class="step reveal">
-      <span class="step-num">01</span>
-      <span class="step-icon">📲</span>
-      <div class="step-name">Nos contactás</div>
-      <div class="step-desc">Por WhatsApp o llamada. Contanos tu problema y en menos de 1 hora te respondemos.</div>
-      <div class="step-connector"></div>
+      <div class="step-number">01</div>
+      <h3>Contacto</h3>
+      <p>Nos contás tu necesidad.</p>
     </div>
-    <div class="step reveal reveal-delay-1">
-      <span class="step-num">02</span>
-      <span class="step-icon">🔍</span>
-      <div class="step-name">Evaluamos gratis</div>
-      <div class="step-desc">Vamos al lugar, diagnosticamos y te entregamos presupuesto claro y detallado.</div>
-      <div class="step-connector"></div>
+    <div class="step reveal">
+      <div class="step-number">02</div>
+      <h3>Visita técnica</h3>
+      <p>Evaluamos el lugar.</p>
     </div>
-    <div class="step reveal reveal-delay-2">
-      <span class="step-num">03</span>
-      <span class="step-icon">⚡</span>
-      <div class="step-name">Ejecutamos</div>
-      <div class="step-desc">Con materiales premium y prolijidad total. En el día y horario que acordamos.</div>
-      <div class="step-connector"></div>
+    <div class="step reveal">
+      <div class="step-number">03</div>
+      <h3>Presupuesto</h3>
+      <p>Te presentamos el plan.</p>
     </div>
-    <div class="step reveal reveal-delay-3">
-      <span class="step-num">04</span>
-      <span class="step-icon">✅</span>
-      <div class="step-name">Garantía y soporte</div>
-      <div class="step-desc">Entregamos probado, con garantía 12 meses y soporte post-venta de por vida.</div>
+    <div class="step reveal">
+      <div class="step-number">04</div>
+      <h3>Ejecución</h3>
+      <p>Trabajo prolijo y seguro.</p>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section" id="testimonios">
-  <div class="s-label reveal">Lo que dicen quienes ya confían en nosotros</div>
-  <h2 class="s-title reveal reveal-delay-1">CASOS REALES<br><span class="acc">DE CÓRDOBA</span></h2>
-  <div class="testimonials-grid">
-    <div class="testi reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Vinieron el mismo día que les escribí. Cambiaron el tablero viejo que me tenía con miedo a un incendio. Trabajo impecable y precio justo. Los recomiendo 100%."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">MA</div>
-        <div>
-          <div class="testi-name">María A.</div>
-          <div class="testi-role">Nueva Córdoba</div>
-        </div>
-      </div>
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="testimonials">
+  <h2 class="section-title reveal">Lo que dicen nuestros clientes</h2>
+  <div class="services-grid">
+    <div class="testimonial reveal">
+      <p>“Muy profesional y cuidadoso. Cambió todo el tablero de mi casa y quedó impecable.”</p>
+      <strong>— María A., Nueva Córdoba</strong>
     </div>
-    <div class="testi reveal reveal-delay-1">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Instalación completa de mi local comercial. Llegaron puntuales, dejaron todo perfecto y en el tiempo prometido. El mejor electricista que contraté en Córdoba."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">CR</div>
-        <div>
-          <div class="testi-name">Carlos R.</div>
-          <div class="testi-role">Comercio · Alberdi</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi reveal reveal-delay-2">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Tenía un problema grave con la puesta a tierra. Lo solucionaron en 3 horas y con garantía. Atención excelente y explicación clara de todo."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">LP</div>
-        <div>
-          <div class="testi-name">Laura P.</div>
-          <div class="testi-role">Casa · Cerro de las Rosas</div>
-        </div>
-      </div>
+    <div class="testimonial reveal">
+      <p>“Rápido, claro y buen trabajo. Recomendado.”</p>
+      <strong>— Carlos R., Alberdi</strong>
     </div>
   </div>
 </section>
 
-<!-- COVERAGE -->
-<section class="section coverage-bg" id="zonas">
-  <div class="s-label reveal">Dónde llegamos rápido</div>
-  <h2 class="s-title reveal reveal-delay-1">CÓRDOBA CAPITAL<br>Y TODO EL GRAN CÓRDOBA</h2>
-  <div class="coverage-inner">
-    <div>
-      <p style="color:var(--gr);line-height:1.8;margin-bottom:2rem;" class="reveal">Llegamos el mismo día a la mayoría de las zonas. ¿No ves tu barrio? Escribinos igual, te respondemos al instante.</p>
-      <div class="zones-list">
-        <div class="zone reveal">Córdoba Capital</div>
-        <div class="zone reveal reveal-delay-1">Alta Gracia</div>
-        <div class="zone reveal reveal-delay-2">Villa Allende</div>
-        <div class="zone reveal reveal-delay-3">Río Ceballos</div>
-        <div class="zone reveal">Mendiolaza</div>
-        <div class="zone reveal reveal-delay-1">La Calera</div>
-        <div class="zone reveal reveal-delay-2">Unquillo</div>
-        <div class="zone reveal reveal-delay-3">Malagueño</div>
-        <div class="zone reveal">Villa Carlos Paz</div>
-        <div class="zone reveal reveal-delay-1">Jesús María</div>
-      </div>
-    </div>
-    <div class="coverage-visual reveal">
-      <div class="coverage-map-text">CBA</div>
-      <div class="coverage-city">CÓRDOBA</div>
-      <div class="coverage-sub">Y GRAN CÓRDOBA · LLEGAMOS HOY</div>
-    </div>
-  </div>
+<!-- CONTACTO -->
+<section id="contacto" class="contact">
+  <h2 class="reveal">¿Necesitás un electricista de confianza?</h2>
+  <p class="reveal">Córdoba Capital y zona</p>
+  <div class="phone reveal">351 388 2783</div>
+  <a href="https://wa.me/543513882783" class="btn" target="_blank">Enviar mensaje por WhatsApp</a>
 </section>
 
-<!-- FAQ -->
-<section class="section faq" id="preguntas">
-  <div class="s-label reveal">Todo claro</div>
-  <h2 class="s-title reveal reveal-delay-1">PREGUNTAS FRECUENTES</h2>
-  <div class="faq-list reveal reveal-delay-2">
-    **Summary:**
-¿El presupuesto es realmente gratis?
-      <p>Sí. 100% gratis y sin compromiso. Te damos el precio exacto por escrito antes de empezar cualquier trabajo.</p>
-    **Summary:**
-¿Cuánto tardan en venir?
-      <p>En la mayoría de los casos el mismo día o máximo 24 hs. Para urgencias respondemos en minutos.</p>
-    **Summary:**
-¿Trabajan fines de semana y feriados?
-      <p>Sí. Tenemos equipo disponible 7 días para emergencias eléctricas.</p>
-    **Summary:**
-¿Usan materiales de buena calidad?
-      <p>Solo marcas premium (ABB, Schneider, Philips, etc.). Nunca usamos productos baratos que fallen después.</p>
-    **Summary:**
-¿Dan factura y garantía?
-      <p>Sí. Factura legal y garantía por escrito de 12 meses en mano de obra y materiales.</p>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section" id="contacto">
-  <div class="s-label reveal">Último paso</div>
-  <h2 class="s-title reveal reveal-delay-1">PEDÍ TU PRESUPUESTO<br><span class="acc">GRATIS HOY</span><br>Y DORMÍ TRANQUILO</h2>
-  <div class="contact-layout">
-    <div class="contact-cards">
-      <div class="c-card reveal">
-        <div class="c-label">WhatsApp directo (respuesta inmediata)</div>
-        <div class="c-value">351 388 2783</div>
-      </div>
-      <a href="https://wa.me/543513882783?text=Hola%20Voltex%2C%20quiero%20mi%20presupuesto%20GRATIS%20HOY" class="wa-mega reveal reveal-delay-1" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        ESCRIBIR POR WHATSAPP AHORA
-      </a>
-      <div class="contact-info-list">
-        <div class="c-info reveal">
-          <div class="c-info-icon">📍</div>
-          Córdoba Capital y Gran Córdoba
-        </div>
-        <div class="c-info reveal reveal-delay-1">
-          <div class="c-info-icon">⏰</div>
-          Lunes a Sábado 8:00 – 20:00 hs (urgencias 24 hs)
-        </div>
-        <div class="c-info reveal reveal-delay-2">
-          <div class="c-info-icon">🚀</div>
-          Respuesta garantizada en menos de 60 minutos
-        </div>
-        <div class="c-info reveal reveal-delay-3">
-          <div class="c-info-icon">🎯</div>
-          Presupuesto gratis + garantía 12 meses
-        </div>
-      </div>
-    </div>
-    <div class="reveal reveal-delay-2" style="background:var(--d1);border:1px solid rgba(255,214,0,0.1);padding:4rem;display:flex;flex-direction:column;gap:2rem;">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.3em;color:var(--y);">POR QUÉ NO DEBERÍAS ESPERAR</div>
-      <div style="display:flex;flex-direction:column;gap:1.5rem;">
-        <div style="display:flex;gap:1rem;align-items:flex-start;">
-          <span style="color:var(--y);font-size:1.3rem;margin-top:2px;">🔥</span>
-          <div>
-            <div style="font-weight:700;margin-bottom:0.3rem;">Cada día sin arreglar = más riesgo</div>
-            <div style="font-size:0.88rem;color:var(--gr);line-height:1.6;">Una instalación vieja puede generar un incendio o un corte de luz costoso.</div>
-          </div>
-        </div>
-        <div style="display:flex;gap:1rem;align-items:flex-start;">
-          <span style="color:var(--y);font-size:1.3rem;margin-top:2px;">💸</span>
-          <div>
-            <div style="font-weight:700;margin-bottom:0.3rem;">El problema no desaparece solo</div>
-            <div style="font-size:0.88rem;color:var(--gr);line-height:1.6;">Cuanto más esperás, más caro y complicado se vuelve.</div>
-          </div>
-        </div>
-      </div>
-      <a href="https://wa.me/543513882783?text=Hola%20Voltex%2C%20quiero%20mi%20presupuesto%20GRATIS%20HOY" class="btn btn-y" style="margin-top:auto;width:100%;justify-content:center;" target="_blank">
-        SÍ, QUIERO MI PRESUPUESTO GRATIS
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="logo">VOLT<em>EX</em></div>
-      <p class="footer-tagline">Electricista profesional en Córdoba. Instalaciones seguras, tableros confiables y mantenimiento que protege tu hogar o negocio.</p>
-    </div>
-    <ul class="footer-links">
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#porque">Por qué Voltex</a></li>
-      <li><a href="#testimonios">Clientes</a></li>
-      <li><a href="#zonas">Zonas</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Voltex Electromantenimiento · Córdoba, Argentina · Todos los derechos reservados</span>
-    <a href="https://wa.me/543513882783" class="footer-phone">351 388 2783 → Presupuesto Gratis</a>
-  </div>
+  © 2026 Voltex Electromantenimiento • Córdoba, Argentina
 </footer>
 
 <script>
-// ─── LOADER ───
-const loader = document.getElementById('loader');
-const loaderBar = document.getElementById('loaderBar');
-const loaderNum = document.getElementById('loaderNum');
-let prog = 0;
-const interval = setInterval(() => {
-  prog += Math.random() * 15;
-  if (prog >= 100) { prog = 100; clearInterval(interval); }
-  loaderBar.style.width = prog + '%';
-  loaderNum.textContent = Math.floor(prog) + '%';
-  if (prog === 100) setTimeout(() => loader.classList.add('done'), 300);
-}, 120);
-
-// ─── CURSOR ───
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx + 'px';
-  cursor.style.top = my + 'px';
-});
-(function animRing() {
-  rx += (mx - rx) * 0.1;
-  ry += (my - ry) * 0.1;
-  ring.style.left = rx + 'px';
-  ring.style.top = ry + 'px';
-  requestAnimationFrame(animRing);
-})();
-document.querySelectorAll('a,button,.svc,.testi,.why-card,.problema').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.width = '24px';
-    cursor.style.height = '24px';
-    ring.style.width = '60px';
-    ring.style.height = '60px';
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.width = '12px';
-    cursor.style.height = '12px';
-    ring.style.width = '36px';
-    ring.style.height = '36px';
-  });
-});
-
-// ─── SCROLL PROGRESS ───
-const progressBar = document.getElementById('progress');
-window.addEventListener('scroll', () => {
-  const s = document.documentElement.scrollTop;
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  progressBar.style.width = (s / h * 100) + '%';
-});
-
-// ─── NAV SCROLL ───
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// ─── FLOATING WA ───
-const floatWa = document.getElementById('floatWa');
-window.addEventListener('scroll', () => {
-  floatWa.classList.toggle('show', window.scrollY > 400);
-});
-
-// ─── BOLTS ───
-const boltsContainer = document.getElementById('bolts');
-for (let i = 0; i < 6; i++) {
-  const b = document.createElement('div');
-  b.className = 'bolt';
-  const h = 100 + Math.random() * 200;
-  b.style.cssText = `
-    height: ${h}px;
-    left: ${Math.random() * 100}%;
-    animation: boltFall ${3 + Math.random() * 4}s ${Math.random() * 5}s linear infinite;
-  `;
-  boltsContainer.appendChild(b);
-}
-
-// ─── REVEAL ON SCROLL ───
+// Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-reveals.forEach(el => revealObs.observe(el));
-
-// ─── COUNTER ANIMATION ───
-const counters = document.querySelectorAll('.counter');
-const countObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target;
-    const target = +el.dataset.target;
-    const duration = 1800;
-    const step = target / (duration / 16);
-    let current = 0;
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= target) { current = target; clearInterval(timer); }
-      el.textContent = Math.floor(current);
-    }, 16);
-    countObs.unobserve(el);
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
-}, { threshold: 0.5 });
-counters.forEach(el => countObs.observe(el));
+}, { threshold: 0.15 });
 
-// ─── SMOOTH SCROLL ───
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-  });
+reveals.forEach(el => observer.observe(el));
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
 });
 </script>
 </body>
-  </html>
+</html>
