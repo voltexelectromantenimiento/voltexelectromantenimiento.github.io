@@ -24,13 +24,13 @@
 
       window.setTimeout(() => {
         popup.classList.remove("show");
-      }, 4200);
+      }, 3200);
 
       popupIndex = (popupIndex + 1) % popupMessages.length;
     }
 
     showPopup();
-    popupIntervalId = window.setInterval(showPopup, 7600);
+    popupIntervalId = window.setInterval(showPopup, 6200);
   }
 
   function finishIntro() {
@@ -41,13 +41,13 @@
     body.style.overflow = "";
 
     if (intro) {
-      intro.style.transition = "opacity .55s ease, visibility .55s ease";
+      intro.style.transition = "opacity .28s ease, visibility .28s ease";
       intro.style.opacity = "0";
       intro.style.visibility = "hidden";
 
       window.setTimeout(() => {
         intro.remove();
-      }, 650);
+      }, 320);
     }
 
     startPopupLoop();
@@ -55,7 +55,7 @@
 
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     body.style.overflow = "hidden";
-    window.setTimeout(finishIntro, 3900);
+    window.setTimeout(finishIntro, 2150);
   } else {
     body.classList.add("site-ready");
     if (intro) intro.remove();
