@@ -136,7 +136,7 @@ body.site-ready .site-shell{
     0 0 30px rgba(255,205,86,.80),
     0 0 90px rgba(255,179,0,.35),
     0 0 180px rgba(255,179,0,.18);
-  animation:introCorePulse 3.9s ease-in-out forwards;
+  animation:introCorePulse 2.15s ease-in-out forwards;
 }
 
 .intro-energy-ring{
@@ -152,13 +152,13 @@ body.site-ready .site-shell{
 .intro-energy-ring.ring-1{
   width:210px;
   height:210px;
-  animation:introRingPulse1 3.9s ease-out forwards;
+  animation:introRingPulse1 2.15s ease-out forwards;
 }
 
 .intro-energy-ring.ring-2{
   width:330px;
   height:330px;
-  animation:introRingPulse2 3.9s ease-out forwards;
+  animation:introRingPulse2 2.15s ease-out forwards;
 }
 
 .intro-electric-line{
@@ -178,7 +178,7 @@ body.site-ready .site-shell{
     0 0 12px rgba(255,214,92,.55),
     0 0 22px rgba(255,173,31,.24);
   filter:blur(.2px);
-  animation:introLineFlicker 3.9s linear forwards;
+  animation:introLineFlicker 2.15s linear forwards;
 }
 
 .intro-electric-line.line-2{
@@ -197,7 +197,7 @@ body.site-ready .site-shell{
     radial-gradient(circle at 50% 32%, rgba(255,248,214,.96), rgba(255,240,183,.72) 12%, rgba(255,219,122,.10) 22%, transparent 34%),
     linear-gradient(180deg, rgba(255,253,240,.22), transparent 40%);
   opacity:0;
-  animation:introFlashReal 3.9s linear forwards;
+  animation:introFlashReal 2.15s linear forwards;
 }
 
 .intro-vignette{
@@ -223,7 +223,7 @@ body.site-ready .site-shell{
 .intro-copy{
   max-width:640px;
   z-index:2;
-  animation:introCopyIn .9s ease .45s both;
+  animation:introCopyIn .72s ease .18s both;
 }
 
 .intro-kicker{
@@ -289,7 +289,7 @@ body.site-ready .site-shell{
     0 24px 80px rgba(0,0,0,.42),
     inset 0 1px 0 rgba(255,255,255,.08);
   backdrop-filter:blur(16px);
-  animation:introCardIn .9s ease .75s both;
+  animation:introCardIn .72s ease .28s both;
 }
 
 .status-pill{
@@ -965,7 +965,7 @@ body.site-ready .site-shell{
   box-shadow:0 12px 28px rgba(0,0,0,.26);
   opacity:0;
   transform:translateY(8px) scale(.98);
-  transition:opacity .28s ease, transform .28s ease;
+  transition:opacity .24s ease, transform .24s ease;
   pointer-events:none;
 }
 
@@ -1052,25 +1052,29 @@ body.site-ready .site-shell{
 }
 
 @keyframes introLineFlicker{
-  0%,8%{opacity:0}
-  10%{opacity:.95}
-  12%{opacity:.22}
-  15%{opacity:1}
-  18%{opacity:.48}
-  21%{opacity:1}
-  28%{opacity:.78}
-  100%{opacity:.22}
+  0%{opacity:1;filter:brightness(1);}
+  8%{opacity:1;filter:brightness(1);}
+  10%{opacity:.25;filter:brightness(.55);}
+  12%{opacity:1;filter:brightness(1.08);}
+  15%{opacity:.12;filter:brightness(.4);}
+  18%{opacity:.95;filter:brightness(1.04);}
+  22%{opacity:.18;filter:brightness(.5);}
+  26%{opacity:.82;filter:brightness(.95);}
+  32%{opacity:.38;filter:brightness(.72);}
+  40%{opacity:.92;filter:brightness(1);}
+  100%{opacity:1;filter:brightness(1);}
 }
 
 @keyframes introFlashReal{
-  0%,11%{opacity:0}
-  12%{opacity:.20}
-  14%{opacity:0}
-  17%{opacity:.92}
-  18%{opacity:.18}
-  21%{opacity:.76}
-  22%{opacity:0}
-  100%{opacity:0}
+  0%{opacity:0;}
+  6%{opacity:0;}
+  10%{opacity:.95;}
+  14%{opacity:.18;}
+  18%{opacity:.88;}
+  22%{opacity:.08;}
+  26%{opacity:.55;}
+  32%{opacity:0;}
+  100%{opacity:0;}
 }
 
 @keyframes introCopyIn{
@@ -1245,4 +1249,4 @@ body.site-ready .site-shell{
 
   body{overflow:auto}
   .intro{display:none}
-    }
+}
