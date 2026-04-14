@@ -55,7 +55,7 @@
 
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     body.style.overflow = "hidden";
-    window.setTimeout(finishIntro, 2150);
+    window.setTimeout(finishIntro, 1650);
   } else {
     body.classList.add("site-ready");
     if (intro) intro.remove();
